@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JDRP Engine — Report Designer & Viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0f0f0e;
+  --ink2:#3a3a38;
+  --ink3:#767672;
+  --paper:#f9f7f2;
+  --paper2:#f2efe8;
+  --paper3:#e8e4da;
+  --accent:#1a5c3a;
+  --accent2:#2d8a58;
+  --accent-light:#e2f0e8;
+  --rule:#d4d0c8;
+  --mono:#DM Mono,monospace;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 60px;
+  border-bottom:1px solid var(--rule);
+  background:var(--paper);
+  position:sticky;top:0;z-index:100;
+}
+.nav-logo{
+  font-family:var(--serif);
+  font-size:22px;
+  color:var(--ink);
+  letter-spacing:-0.5px;
+}
+.nav-logo span{color:var(--accent2);}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:14px;color:var(--ink2);text-decoration:none;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{
+  background:var(--ink);color:var(--paper);
+  padding:9px 22px;border-radius:6px;
+  font-size:13px;font-weight:500;
+  text-decoration:none;letter-spacing:.2px;
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--accent);}
+
+/* ── HERO ── */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;min-height:88vh;
+  border-bottom:1px solid var(--rule);
+}
+.hero-left{
+  padding:80px 60px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--rule);
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-light);
+  padding:5px 12px;border-radius:4px;
+  margin-bottom:28px;width:fit-content;
+}
+.hero-eyebrow::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:var(--accent2);
+}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(42px,5vw,68px);
+  line-height:1.05;
+  letter-spacing:-2px;
+  color:var(--ink);
+  margin-bottom:24px;
+}
+.hero-title em{
+  font-style:italic;color:var(--accent);
+}
+.hero-sub{
+  font-size:17px;color:var(--ink2);
+  line-height:1.7;max-width:480px;
+  margin-bottom:40px;
+}
+.hero-actions{display:flex;gap:12px;align-items:center;}
+.btn-primary{
+  background:var(--accent);color:#fff;
+  padding:13px 28px;border-radius:7px;
+  font-size:15px;font-weight:600;
+  text-decoration:none;letter-spacing:.1px;
+  transition:background .2s,transform .15s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px);}
+.btn-primary svg{width:16px;height:16px;}
+.btn-secondary{
+  color:var(--ink2);font-size:14px;font-weight:500;
+  text-decoration:none;padding:13px 20px;
+  border:1px solid var(--rule);border-radius:7px;
+  transition:border-color .2s,color .2s;
+}
+.btn-secondary:hover{border-color:var(--ink2);color:var(--ink);}
+.hero-stats{
+  display:flex;gap:36px;margin-top:52px;
+  padding-top:36px;border-top:1px solid var(--rule);
+}
+.hero-stat-val{font-family:var(--serif);font-size:32px;color:var(--ink);display:block;}
+.hero-stat-label{font-size:12px;color:var(--ink3);text-transform:uppercase;letter-spacing:1px;}
+
+/* Hero right — designer mockup */
+.hero-right{
+  background:var(--paper2);
+  display:flex;align-items:center;justify-content:center;
+  padding:40px;overflow:hidden;
+  position:relative;
+}
+.designer-mockup{
+  width:100%;max-width:520px;
+  background:var(--paper);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 40px rgba(0,0,0,.08);
+}
+.mockup-titlebar{
+  background:var(--paper3);
+  padding:10px 14px;
+  display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--rule);
+}
+.dot{width:10px;height:10px;border-radius:50%;}
+.dot-r{background:#e74c3c;}
+.dot-y{background:#f39c12;}
+.dot-g{background:#27ae60;}
+.mockup-toolbar{
+  background:var(--paper2);
+  border-bottom:1px solid var(--rule);
+  padding:8px 14px;
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.tb-btn{
+  font-family:'DM Mono',monospace;
+  font-size:10px;color:var(--ink2);
+  background:var(--paper);
+  border:0.5px solid var(--rule);
+  padding:4px 9px;border-radius:4px;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.tb-btn.active{background:var(--accent-light);color:var(--accent);border-color:var(--accent);}
+.mockup-body{display:flex;height:300px;}
+.mockup-bands{flex:1;padding:12px;overflow:hidden;}
+.band{
+  border:1.5px dashed var(--rule);
+  border-radius:4px;margin-bottom:8px;
+  padding:8px 10px;position:relative;
+}
+.band-label{
+  font-family:'DM Mono',monospace;
+  font-size:9px;color:var(--ink3);
+  text-transform:uppercase;letter-spacing:1px;
+  margin-bottom:6px;
+}
+.band-element{
+  height:18px;border-radius:3px;
+  background:var(--paper3);
+  margin-bottom:4px;display:inline-block;
+}
+.band-element.text{width:55%;background:#d4e8f5;}
+.band-element.field{width:30%;background:#e2f0e8;}
+.band-element.chart{width:85%;height:50px;background:#f0edf7;}
+.band-element.barcode{width:40%;height:32px;background:#fef3cd;
+  display:flex;align-items:center;justify-content:center;gap:1px;padding:4px;
+}
+.bc-bar{background:var(--ink);border-radius:1px;}
+.mockup-props{
+  width:130px;background:var(--paper2);
+  border-left:1px solid var(--rule);
+  padding:10px;overflow:hidden;
+}
+.prop-title{font-size:10px;font-weight:600;color:var(--ink2);margin-bottom:8px;letter-spacing:.5px;}
+.prop-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.prop-key{font-family:'DM Mono',monospace;font-size:9px;color:var(--ink3);}
+.prop-val{font-size:9px;color:var(--ink);font-weight:500;}
+.prop-swatch{width:14px;height:14px;border-radius:2px;border:0.5px solid var(--rule);}
+
+/* ── SECTION COMMON ── */
+section{padding:96px 60px;}
+.section-tag{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:16px;
+}
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(32px,3.5vw,48px);
+  line-height:1.1;letter-spacing:-1px;
+  margin-bottom:16px;
+}
+.section-sub{font-size:17px;color:var(--ink2);line-height:1.7;max-width:600px;}
+
+/* ── FEATURES ── */
+.features{background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.features-header{margin-bottom:60px;}
+.features-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;
+}
+.feature-card{
+  background:var(--paper2);
+  padding:32px 28px;
+  transition:background .2s;
+}
+.feature-card:hover{background:var(--paper);}
+.feature-icon{
+  width:40px;height:40px;
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+}
+.fi-green{background:var(--accent-light);}
+.fi-blue{background:#e6f1fb;}
+.fi-amber{background:#faeeda;}
+.feature-card h3{font-size:16px;font-weight:600;margin-bottom:8px;}
+.feature-card p{font-size:14px;color:var(--ink2);line-height:1.6;}
+.tag-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}
+.tag{
+  font-family:'DM Mono',monospace;
+  font-size:10px;color:var(--ink2);
+  background:var(--paper3);
+  padding:3px 8px;border-radius:3px;
+}
+
+/* ── ELEMENTS SHOWCASE ── */
+.elements{border-top:1px solid var(--rule);}
+.elements-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;}
+.elements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.el-card{
+  border:1px solid var(--rule);border-radius:8px;
+  padding:20px;background:var(--paper);
+  transition:border-color .2s,transform .15s;
+}
+.el-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.el-preview{
+  height:80px;border-radius:5px;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:var(--paper2);
+}
+.el-name{font-size:14px;font-weight:600;margin-bottom:4px;}
+.el-desc{font-size:12px;color:var(--ink3);}
+
+/* SVG previews */
+.preview-barcode{display:flex;gap:1.5px;align-items:flex-end;padding:12px;}
+.preview-barcode span{background:var(--ink);border-radius:1px;}
+
+/* ── EXPORT ── */
+.export-section{background:var(--ink);color:var(--paper);}
+.export-section .section-tag{color:var(--ink3);}
+.export-section .section-title{color:var(--paper);}
+.export-section .section-sub{color:#999;}
+.export-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
+.export-card{
+  border:1px solid #2a2a28;border-radius:8px;
+  padding:24px 20px;background:#1a1a18;
+  transition:border-color .2s;
+}
+.export-card:hover{border-color:#444;}
+.export-badge{
+  font-family:'DM Mono',monospace;
+  font-size:18px;font-weight:500;
+  color:var(--paper);margin-bottom:10px;display:block;
+}
+.export-card p{font-size:13px;color:#888;line-height:1.6;}
+.export-features{margin-top:12px;display:flex;flex-direction:column;gap:4px;}
+.export-feat{font-size:12px;color:#aaa;display:flex;align-items:center;gap:6px;}
+.export-feat::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent2);flex-shrink:0;}
+
+/* ── WORKFLOW ── */
+.workflow{border-top:1px solid var(--rule);}
+.workflow-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin-top:56px;
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;
+}
+.workflow-step{
+  padding:32px 24px;
+  border-right:1px solid var(--rule);
+  position:relative;
+}
+.workflow-step:last-child{border-right:none;}
+.step-num{
+  font-family:var(--serif);font-size:48px;
+  color:var(--rule);line-height:1;
+  margin-bottom:16px;
+}
+.step-title{font-size:15px;font-weight:600;margin-bottom:8px;}
+.step-desc{font-size:13px;color:var(--ink2);line-height:1.6;}
+.step-arrow{
+  position:absolute;top:32px;right:-14px;
+  width:28px;height:28px;
+  background:var(--paper);border:1px solid var(--rule);
+  border-radius:50%;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ── TECH STACK ── */
+.tech{background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+.tech-card{
+  background:var(--paper);border:1px solid var(--rule);
+  border-radius:8px;padding:20px 22px;
+}
+.tech-card h4{font-size:14px;font-weight:600;margin-bottom:4px;}
+.tech-card p{font-size:13px;color:var(--ink3);}
+.tech-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:'DM Mono',monospace;font-size:10px;
+  background:var(--accent-light);color:var(--accent);
+  padding:2px 8px;border-radius:3px;margin-bottom:8px;
+}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--rule);
+  padding:40px 60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{font-family:var(--serif);font-size:20px;color:var(--ink);}
+.footer-logo span{color:var(--accent2);}
+.footer-copy{font-size:13px;color:var(--ink3);}
+.footer-made{font-size:12px;color:var(--ink3);}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.animate{animation:fadeUp .6s ease forwards;}
+.hero-eyebrow::before{animation:pulse 2s ease infinite;}
+
+/* Barcode decorative */
+@keyframes scanline{from{transform:translateY(-100%)}to{transform:translateY(400%)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">JDRP <span>Engine</span></div>
+  <ul class="nav-links">
+    <li><a href="#features">Fitur</a></li>
+    <li><a href="#elements">Elemen</a></li>
+    <li><a href="#export">Export</a></li>
+    <li><a href="#workflow">Cara Kerja</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Mulai Sekarang</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Report Engine · v1.0</div>
+    <h1 class="hero-title">
+      Desain laporan<br>tanpa batas <em>kreasi</em>
+    </h1>
+    <p class="hero-sub">
+      JDRP Engine adalah report designer dan viewer berbasis browser — drag & drop, data binding dinamis, dan export ke PDF, Excel, Word dalam satu platform.
+    </p>
+    <div class="hero-actions">
+      <a href="./demo/report-designer.html" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Lihat Demo
+      </a>
+      <a href="#features" class="btn-secondary">Pelajari fitur →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="hero-stat-val">12+</span>
+        <span class="hero-stat-label">Tipe elemen</span>
+      </div>
+      <div>
+        <span class="hero-stat-val">4</span>
+        <span class="hero-stat-label">Format export</span>
+      </div>
+      <div>
+        <span class="hero-stat-val">30+</span>
+        <span class="hero-stat-label">Tipe barcode</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Designer Mockup -->
+  <div class="hero-right">
+    <div class="designer-mockup">
+      <div class="mockup-titlebar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);margin-left:8px;">report-designer — JDRP Engine</span>
+      </div>
+      <div class="mockup-toolbar">
+        <div class="tb-btn active">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          Teks
+        </div>
+        <div class="tb-btn">Field</div>
+        <div class="tb-btn">Gambar</div>
+        <div class="tb-btn">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Chart
+        </div>
+        <div class="tb-btn">Barcode</div>
+        <div class="tb-btn">Shape</div>
+        <div class="tb-btn">Tabel</div>
+        <div class="tb-btn">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/></svg>
+          Map
+        </div>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-bands">
+          <div class="band" style="border-color:#b5d4f4;background:#f0f7ff;">
+            <div class="band-label" style="color:#185fa5;">Page Header</div>
+            <div class="band-element text"></div>
+            <div class="band-element field"></div>
+          </div>
+          <div class="band">
+            <div class="band-label">Detail Band</div>
+            <div class="band-element text" style="width:35%;"></div>
+            <div class="band-element field" style="width:20%;"></div>
+            <div class="band-element barcode">
+              <span class="bc-bar" style="width:2px;height:20px;"></span>
+              <span class="bc-bar" style="width:1px;height:18px;"></span>
+              <span class="bc-bar" style="width:3px;height:22px;"></span>
+              <span class="bc-bar" style="width:1px;height:16px;"></span>
+              <span class="bc-bar" style="width:2px;height:22px;"></span>
+              <span class="bc-bar" style="width:1px;height:18px;"></span>
+              <span class="bc-bar" style="width:2px;height:20px;"></span>
+            </div>
+            <div class="band-element chart" style="width:90%;margin-top:6px;"></div>
+          </div>
+          <div class="band" style="border-color:#c0dd97;background:#f4faec;">
+            <div class="band-label" style="color:#3b6d11;">Footer</div>
+            <div class="band-element field" style="width:45%;"></div>
+          </div>
+        </div>
+        <div class="mockup-props">
+          <div class="prop-title">Properties</div>
+          <div class="prop-row">
+            <span class="prop-key">type</span>
+            <span class="prop-val">text</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-key">x</span>
+            <span class="prop-val">24px</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-key">w</span>
+            <span class="prop-val">180px</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-key">font</span>
+            <span class="prop-val">Arial 12</span>
+          </div>
+          <div class="prop-row">
+            <span class="prop-key">color</span>
+            <div class="prop-swatch" style="background:#1a5c3a;"></div>
+          </div>
+          <div class="prop-row">
+            <span class="prop-key">bold</span>
+            <span class="prop-val">true</span>
+          </div>
+          <div style="margin-top:12px;padding-top:10px;border-top:0.5px solid var(--rule);">
+            <div class="prop-title">Expression</div>
+            <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--accent);background:var(--accent-light);padding:6px 8px;border-radius:4px;line-height:1.6;">{item.nama}<br>{item.total}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features-header">
+    <div class="section-tag">Fitur Utama</div>
+    <h2 class="section-title">Semua yang anda butuhkan<br>untuk membuat laporan profesional</h2>
+    <p class="section-sub">Dari desain visual hingga export multi-format — JDRP Engine menangani semuanya.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon fi-green">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5c3a" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <h3>Visual Designer</h3>
+      <p>Drag & drop elemen langsung ke canvas. Resize, snap ke grid, multi-select, dan undo/redo penuh.</p>
+      <div class="tag-list">
+        <span class="tag">snap</span>
+        <span class="tag">multi-select</span>
+        <span class="tag">undo/redo</span>
+        <span class="tag">grid</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon fi-blue">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185fa5" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      </div>
+      <h3>Data Binding Dinamis</h3>
+      <p>Koneksikan field langsung ke data source. Gunakan expression engine untuk kalkulasi dan format otomatis.</p>
+      <div class="tag-list">
+        <span class="tag">{field}</span>
+        <span class="tag">expression</span>
+        <span class="tag">grouping</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon fi-amber">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#854f0b" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+      </div>
+      <h3>CrossTab Report</h3>
+      <p>Buat laporan pivot otomatis dengan group header, footer, dan subtotal per kelompok data.</p>
+      <div class="tag-list">
+        <span class="tag">pivot</span>
+        <span class="tag">subtotal</span>
+        <span class="tag">group</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon fi-green">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5c3a" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <h3>Chart Interaktif</h3>
+      <p>Integrasi Chart.js dengan 6 tipe chart — bar, line, pie, doughnut, radar, polar. Data dinamis dari source.</p>
+      <div class="tag-list">
+        <span class="tag">bar</span>
+        <span class="tag">line</span>
+        <span class="tag">pie</span>
+        <span class="tag">+3</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon fi-blue">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185fa5" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+      </div>
+      <h3>Peta Interaktif</h3>
+      <p>Tampilkan data geografis dengan jsVectorMap. Region click untuk URL atau hint tooltip. Export sebagai gambar.</p>
+      <div class="tag-list">
+        <span class="tag">World</span>
+        <span class="tag">Indonesia</span>
+        <span class="tag">USA</span>
+        <span class="tag">+10</span>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon fi-amber">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#854f0b" stroke-width="2"><path d="M3 5v14M7 5v14M13 5v14M17 5v14M21 5v14M10 5v14"/></svg>
+      </div>
+      <h3>Barcode & QR Code</h3>
+      <p>30+ tipe barcode via bwip-js — CODE128, QR, EAN, UPC, PDF417, DataMatrix, dan banyak lagi.</p>
+      <div class="tag-list">
+        <span class="tag">CODE128</span>
+        <span class="tag">QR</span>
+        <span class="tag">EAN-13</span>
+        <span class="tag">+27</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELEMENTS -->
+<section class="elements" id="elements">
+  <div class="elements-header">
+    <div>
+      <div class="section-tag">Tipe Elemen</div>
+      <h2 class="section-title">12 tipe elemen siap pakai</h2>
+    </div>
+    <p style="max-width:280px;font-size:14px;color:var(--ink2);text-align:right;line-height:1.6;">Semua elemen mendukung data binding dan dapat diekspor sebagai PNG pada PDF, Excel, dan Word.</p>
+  </div>
+  <div class="elements-grid">
+
+    <div class="el-card">
+      <div class="el-preview" style="background:#f0f7ff;">
+        <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#185fa5;">Aa</div>
+      </div>
+      <div class="el-name">Teks & Field</div>
+      <div class="el-desc">Label statis atau field dinamis dengan expression</div>
+    </div>
+
+    <div class="el-card">
+      <div class="el-preview" style="background:#f4faec;">
+        <svg width="48" height="40" viewBox="0 0 48 40"><rect x="4" y="4" width="40" height="32" rx="3" fill="none" stroke="#3b6d11" stroke-width="1.5"/><line x1="4" y1="14" x2="44" y2="14" stroke="#3b6d11" stroke-width="1"/><text x="24" y="28" text-anchor="middle" font-family="DM Mono" font-size="8" fill="#639922">table</text></svg>
+      </div>
+      <div class="el-name">Tabel</div>
+      <div class="el-desc">Header + data rows dari source atau statis</div>
+    </div>
+
+    <div class="el-card">
+      <div class="el-preview">
+        <svg width="72" height="48" viewBox="0 0 72 48">
+          <rect x="6" y="32" width="10" height="10" fill="#185fa5"/>
+          <rect x="20" y="20" width="10" height="22" fill="#185fa5" opacity=".7"/>
+          <rect x="34" y="14" width="10" height="28" fill="#185fa5" opacity=".9"/>
+          <rect x="48" y="24" width="10" height="18" fill="#185fa5" opacity=".6"/>
+          <rect x="62" y="8" width="10" height="34" fill="#185fa5"/>
+        </svg>
+      </div>
+      <div class="el-name">Chart</div>
+      <div class="el-desc">6 tipe — bar, line, pie, doughnut, radar, polar</div>
+    </div>
+
+    <div class="el-card">
+      <div class="el-preview" style="background:#fef9ec;">
+        <div style="display:flex;gap:1.5px;align-items:flex-end;padding:8px;">
+          <span style="background:var(--ink);width:2px;height:28px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:1px;height:22px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:3px;height:32px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:1px;height:20px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:2px;height:28px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:1px;height:24px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:2px;height:32px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:3px;height:18px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:1px;height:26px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:2px;height:30px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:1px;height:22px;border-radius:1px;display:block;"></span>
+          <span style="background:var(--ink);width:3px;height:32px;border-radius:1px;display:block;"></span>
+        </div>
+      </div>
+      <div class="el-name">Barcode</div>
+      <div class="el-desc">30+ tipe — CODE128, QR, EAN, UPC, PDF417...</div>
+    </div>
+
+    <div class="el-card">
+      <div class="el-preview">
+        <svg width="60" height="44" viewBox="0 0 60 44">
+          <ellipse cx="30" cy="22" rx="24" ry="16" fill="none" stroke="#1D9E75" stroke-width="1.5"/>
+          <ellipse cx="30" cy="22" rx="14" ry="10" fill="none" stroke="#1D9E75" stroke-width="1"/>
+          <ellipse cx="30" cy="22" rx="6" ry="4" fill="#1D9E75" opacity=".3"/>
+          <line x1="6" y1="22" x2="54" y2="22" stroke="#1D9E75" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="30" y1="6" x2="30" y2="38" stroke="#1D9E75" stroke-width="1" stroke-dasharray="3,2"/>
+        </svg>
+      </div>
+      <div class="el-name">Peta</div>
+      <div class="el-desc">jsVectorMap — World, Indonesia, USA, dan lainnya</div>
+    </div>
+
+    <div class="el-card">
+      <div class="el-preview">
+        <svg width="60" height="44" viewBox="0 0 60 44">
+          <rect x="8" y="6" width="44" height="32" rx="4" fill="#E6F1FB" stroke="#185fa5" stroke-width="1.5"/>
+          <path d="M8 16 L30 6 L52 16" fill="#B5D4F4"/>
+          <rect x="18" y="22" width="10" height="16" fill="#185fa5" opacity=".8" rx="1"/>
+          <rect x="32" y="18" width="10" height="20" fill="#185fa5" opacity=".6" rx="1"/>
+        </svg>
+      </div>
+      <div class="el-name">Gambar</div>
+      <div class="el-desc">URL atau base64, resize proporsional</div>
+    </div>
+
+    <div class="el-card">
+      <div class="el-preview">
+        <svg width="60" height="44" viewBox="0 0 60 44">
+          <polygon points="30,6 54,38 6,38" fill="none" stroke="#D85A30" stroke-width="1.5"/>
+          <circle cx="30" cy="22" r="14" fill="none" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <rect x="18" y="14" width="24" height="16" rx="2" fill="none" stroke="#D85A30" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="el-name">Shape</div>
+      <div class="el-desc">40+ bentuk — flowchart, basic, arrows, callout</div>
+    </div>
+
+    <div class="el-card">
+      <div class="el-preview" style="background:#f9f7f2;">
+        <svg width="60" height="44" viewBox="0 0 60 44">
+          <line x1="4" y1="22" x2="56" y2="22" stroke="#888780" stroke-width="2"/>
+          <rect x="4" y="8" width="52" height="28" rx="3" fill="none" stroke="#888780" stroke-width="1.5"/>
+          <text x="30" y="37" text-anchor="middle" font-family="DM Mono" font-size="7" fill="#888780">Line · Rect</text>
+        </svg>
+      </div>
+      <div class="el-name">Garis & Kotak</div>
+      <div class="el-desc">Separator dan pembatas dekoratif</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPORT -->
+<section class="export-section" id="export">
+  <div class="section-tag">Multi-format Export</div>
+  <h2 class="section-title">Export sekali,<br>buka di mana saja</h2>
+  <p class="section-sub">Semua elemen — barcode, chart, map, dan shape — dirender sebagai gambar PNG nyata di setiap format export.</p>
+  <div class="export-grid">
+    <div class="export-card">
+      <span class="export-badge">.pdf</span>
+      <p>Multi-halaman dengan html2pdf. Render per chunk untuk data besar.</p>
+      <div class="export-features">
+        <div class="export-feat">Portrait & landscape</div>
+        <div class="export-feat">Multi-page otomatis</div>
+        <div class="export-feat">Margin custom</div>
+        <div class="export-feat">Barcode PNG nyata</div>
+      </div>
+    </div>
+    <div class="export-card">
+      <span class="export-badge">.xlsx</span>
+      <p>ExcelJS native dengan embedded image — chart, barcode, dan map sebagai gambar.</p>
+      <div class="export-features">
+        <div class="export-feat">ExcelJS addImage</div>
+        <div class="export-feat">Cell styling penuh</div>
+        <div class="export-feat">Freeze header</div>
+        <div class="export-feat">Formula support</div>
+      </div>
+    </div>
+    <div class="export-card">
+      <span class="export-badge">.docx</span>
+      <p>docx.js native dengan ImageRun — setiap elemen visual jadi gambar inline Word.</p>
+      <div class="export-features">
+        <div class="export-feat">docx.js native</div>
+        <div class="export-feat">ImageRun per elemen</div>
+        <div class="export-feat">Table support</div>
+        <div class="export-feat">Font & alignment</div>
+      </div>
+    </div>
+    <div class="export-card">
+      <span class="export-badge">Cetak</span>
+      <p>Print langsung dari browser via iframe dengan resolusi penuh. Canvas barcode di-inject sebagai img.</p>
+      <div class="export-features">
+        <div class="export-feat">Print preview</div>
+        <div class="export-feat">CSS print rules</div>
+        <div class="export-feat">Page break otomatis</div>
+        <div class="export-feat">Barcode PNG inject</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="workflow" id="workflow">
+  <div class="section-tag">Cara Kerja</div>
+  <h2 class="section-title">Dari desain ke laporan<br>dalam 4 langkah</h2>
+  <div class="workflow-steps">
+    <div class="workflow-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Rancang layout</div>
+      <div class="step-desc">Buka designer, drag elemen ke canvas, atur band header-detail-footer sesuai kebutuhan.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Bind data</div>
+      <div class="step-desc">Hubungkan field ke data source JSON. Tulis expression untuk kalkulasi dan format dinamis.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Preview live</div>
+      <div class="step-desc">Viewer merender laporan secara real-time. Navigasi antar halaman, zoom, dan filter data.</div>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Export & cetak</div>
+      <div class="step-desc">Pilih format PDF, Excel, Word, atau cetak langsung — semua elemen visual terkonversi sempurna.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech">
+  <div class="section-tag">Teknologi</div>
+  <h2 class="section-title">Dibangun di atas library terpercaya</h2>
+  <p class="section-sub">Semua dependensi diload lokal dengan CDN fallback — bekerja bahkan tanpa koneksi internet.</p>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-badge">Rendering</div>
+      <h4>bwip-js</h4>
+      <p>Barcode generator — 30+ symbology, render ke Canvas, export PNG.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-badge">Visualisasi</div>
+      <h4>Chart.js</h4>
+      <p>Chart interaktif — bar, line, pie, radar, doughnut, polar area.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-badge">Peta</div>
+      <h4>jsVectorMap</h4>
+      <p>SVG map engine — region click, tooltip, warna custom per region.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-badge">Export Excel</div>
+      <h4>ExcelJS</h4>
+      <p>Workbook native — embed image, cell style, formula, freeze row.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-badge">Export Word</div>
+      <h4>docx.js</h4>
+      <p>DOCX native — TableCell, ImageRun, TextRun, paragraph styling.</p>
+    </div>
+    <div class="tech-card">
+      <div class="tech-badge">Export PDF</div>
+      <h4>html2pdf.js</h4>
+      <p>HTML-to-PDF via Canvas capture — multi-page, custom margin.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- CREATOR -->
+<section style="border-top:1px solid var(--rule);padding:80px 60px;background:var(--paper);">
+  <div style="max-width:800px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;">
+    <div style="position:relative;flex-shrink:0;">
+      <div style="width:120px;height:120px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'DM Serif Display',serif;font-size:42px;color:#fff;letter-spacing:-2px;">JD</span>
+      </div>
+      <div style="position:absolute;bottom:4px;right:4px;width:22px;height:22px;border-radius:50%;background:var(--accent2);border:3px solid var(--paper);display:flex;align-items:center;justify-content:center;">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;">Creator & Developer</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,40px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;color:var(--ink);">Jimmy Andrian Davius</h2>
+      <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:520px;margin-bottom:20px;">
+        Perancang dan pengembang JDRP Engine — sebuah report designer dan viewer berbasis browser yang dibangun dari nol dengan fokus pada kemudahan desain, fleksibilitas data binding, dan kualitas output export.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span style="font-family:'DM Mono',monospace;font-size:11px;background:var(--accent-light);color:var(--accent);padding:5px 12px;border-radius:4px;">Report Engine</span>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;background:#e6f1fb;color:#185fa5;padding:5px 12px;border-radius:4px;">Frontend Dev</span>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;background:#faeeda;color:#854f0b;padding:5px 12px;border-radius:4px;">UI/UX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">JDRP <span>Engine</span></div>
+  <div class="footer-copy">© 2025 JDRP Engine · Dibuat oleh <strong style="color:var(--ink);">Jimmy Andrian Davius</strong></div>
+  <div class="footer-made">Dibangun dengan presisi</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.animation = 'fadeUp .6s ease forwards';
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.feature-card, .el-card, .export-card, .workflow-step, .tech-card')
+  .forEach(el => { el.style.opacity = '0'; obs.observe(el); });
+</script>
+</body>
+</html>
