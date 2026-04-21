@@ -1,111 +1,111 @@
 # JDRP Report
 
-Report Designer & Viewer Berbasis Browser
+Browser-based Report Designer & Viewer
 
 [![Version](https://img.shields.io/badge/version-v1.0-green)]()
 [![License](https://img.shields.io/badge/license-MIT-blue)]()
 
-JDRP Report adalah report designer dan viewer berbasis browser — drag & drop, data binding dinamis, dan export ke PDF, Excel, Word dalam satu platform.
+JDRP Report is a browser-based report designer and viewer — drag & drop, dynamic data binding, and export to PDF, Excel, Word all in one platform.
 
-## Fitur Utama
+## Key Features
 
 ### Visual Designer
-Drag & drop elemen langsung ke canvas dengan fitur:
-- Resize elemen
-- Snap ke grid
+Drag & drop elements directly onto canvas with:
+- Element resize
+- Snap to grid
 - Multi-select
-- Undo/redo penuh
+- Full undo/redo
 
-### Data Binding Dinamis
-Koneksikan field langsung ke data source JSON dengan:
-- Expression engine untuk kalkulasi
-- Format otomatis
-- Grouping data
+### Dynamic Data Binding
+Connect fields directly to JSON data source with:
+- Expression engine for calculations
+- Automatic formatting
+- Data grouping
 
 ### CrossTab Report
-Buat laporan pivot otomatis dengan:
+Create automatic pivot reports with:
 - Group header & footer
-- Subtotal per kelompok data
+- Subtotals per data group
 
-### Chart Interaktif
-Integrasi Chart.js dengan 6 tipe chart:
+### Interactive Chart
+Chart.js integration with 6 chart types:
 - Bar, Line, Pie, Doughnut, Radar, Polar
-- Data dinamis dari source
+- Dynamic data from source
 
-### Peta Interaktif
-Tampilkan data geografis dengan jsVectorMap:
-- World, Indonesia, USA, dan 10+ region lainnya
-- Region click untuk URL
-- Tooltip dengan hint
+### Interactive Map
+Display geographic data with jsVectorMap:
+- World, Indonesia, USA, and 10+ more regions
+- Region click for URL
+- Tooltip with hint
 
 ### Barcode & QR Code
-30+ tipe barcode via bwip-js:
+30+ barcode types via bwip-js:
 - CODE128, QR, EAN-13, UPC, PDF417, DataMatrix
-- Render ke Canvas
+- Render to Canvas
 - Export PNG
 
 ### Import JasperReports
-Import file .jrxml JasperReports langsung ke JDRP:
-- Konversi otomatis elemen
-- Band dan expression
-- Auto-convert ke format native
+Import .jrxml JasperReports files directly into JDRP:
+- Auto-convert elements
+- Band and expression
+- Auto-convert to native format
 
-## 12 Tipe Elemen
+## 12 Element Types
 
-1. **Teks & Field** — Label statis atau field dinamis dengan expression
-2. **Tabel** — Header + data rows dari source atau statis
-3. **Chart** — 6 tipe (bar, line, pie, doughnut, radar, polar)
-4. **Barcode** — 30+ tipe
-5. **Peta** — jsVectorMap (World, Indonesia, USA, +10)
-6. **Gambar** — URL atau base64, resize proporsional
-7. **Shape** — 40+ bentuk (flowchart, basic, arrows, callout)
-8. **Garis & Kotak** — Separator dan pembatas dekoratif
+1. **Text & Field** — Static label or dynamic field with expression
+2. **Table** — Header + data rows from source or static
+3. **Chart** — 6 types (bar, line, pie, doughnut, radar, polar)
+4. **Barcode** — 30+ types
+5. **Map** — jsVectorMap (World, Indonesia, USA, +10)
+6. **Image** — URL or base64, proportional resize
+7. **Shape** — 40+ shapes (flowchart, basic, arrows, callout)
+8. **Line & Box** — Decorative separators and borders
 
 ## Multi-format Export
 
-Semua elemen (barcode, chart, map, shape) dirender sebagai gambar PNG nyata di setiap format:
+All elements (barcode, chart, map, shape) are rendered as real PNG images in every export format:
 
-| Format | Deskripsi |
-|--------|-----------|
-| **.pdf** | Multi-halaman dengan html2pdf, render per chunk untuk data besar |
-| **.xlsx** | ExcelJS native dengan embedded image, cell styling, freeze header |
-| **.docx** | docx.js native dengan ImageRun, table support |
-| **Cetak** | Print langsung dari browser via iframe |
+| Format | Description |
+|--------|-------------|
+| **.pdf** | Multi-page with html2pdf, chunk rendering for large data |
+| **.xlsx** | ExcelJS native with embedded image, cell styling, freeze header |
+| **.docx** | docx.js native with ImageRun, table support |
+| **Print** | Print directly from browser via iframe |
 
-## Cara Kerja
+## How It Works
 
-1. **Rancang Layout** — Buka designer, drag elemen ke canvas, atur band header-detail-footer
-2. **Bind Data** — Hubungkan field ke data source JSON, tulis expression
-3. **Preview Live** — Viewer merender laporan real-time, navigasi halaman, zoom, filter
-4. **Export & Cetak** — Pilih format PDF, Excel, Word, atau cetak langsung
+1. **Design Layout** — Open designer, drag elements to canvas, arrange band header-detail-footer
+2. **Bind Data** — Connect fields to JSON data source, write expressions
+3. **Live Preview** — Viewer renders reports in real-time, navigate pages, zoom, filter
+4. **Export & Print** — Choose PDF, Excel, Word, or print directly
 
-## Teknologi
+## Technology
 
 - **bwip-js** — Barcode generator (30+ symbology)
-- **Chart.js** — Chart interaktif
+- **Chart.js** — Interactive chart
 - **jsVectorMap** — SVG map engine
-- **ExcelJS** — Export Excel native
-- **docx.js** — Export Word native
-- **html2pdf.js** — Export PDF
+- **ExcelJS** — Native Excel export
+- **docx.js** — Native Word export
+- **html2pdf.js** — PDF export
 
 ## Stats
 
-- 12+ Tipe elemen
-- 4 Format export
-- 30+ Tipe barcode
+- 12+ Element types
+- 4 Export formats
+- 30+ Barcode types
 
 ## Demo
 
-[Lihat Demo](demo/report-designer.html)
+[View Demo](demo/report-designer.html)
 
-## Kontak
+## Contact
 
-Hubungi saya via email: [davius02@gmail.com](mailto:davius02@gmail.com)
+Reach me via email: [davius02@gmail.com](mailto:davius02@gmail.com)
 
-## Lisensi
+## License
 
 MIT License
 
 ## Author
 
-Jimmy Andrian Davius — Perancang dan pengembang JDRP Report
+Jimmy Andrian Davius — Designer and developer of JDRP Report

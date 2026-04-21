@@ -326,6 +326,70 @@ section{padding:80px 60px;}
   color:var(--accent);font-size:14px;
 }
 
+/* ── PRICING ── */
+.pricing{background:linear-gradient(180deg,#f8fafc 0%,#fff 100%);border-top:1px solid var(--rule);text-align:center;padding:100px 60px;}
+.pricing .section-sub{margin:0 auto 48px;}
+.pricing-card{
+  max-width:520px;margin:0 auto;
+  background:#fff;border:1px solid #e2e8f0;
+  border-radius:16px;padding:48px 40px;
+  box-shadow:0 8px 32px rgba(0,0,0,.08);
+  position:relative;overflow:hidden;
+}
+.pricing-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--accent),#00b4d8);
+}
+.pricing-badge{
+  display:inline-block;
+  font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  background:linear-gradient(135deg,#e0f2fe 0%,#bae6fd 100%);color:#0284c7;
+  padding:6px 14px;border-radius:20px;margin-bottom:24px;font-weight:500;
+}
+.pricing-amount{margin-bottom:20px;}
+.price-rp{
+  display:block;font-family:var(--sans);font-size:52px;font-weight:800;
+  color:#0f172a;letter-spacing:-2px;
+  text-shadow:0 2px 4px rgba(0,0,0,.05);
+}
+.price-usd{
+  display:block;font-size:18px;color:#64748b;margin-top:8px;font-weight:500;
+}
+.pricing-desc{font-size:16px;color:#475569;line-height:1.6;margin-bottom:32px;}
+.pricing-features{
+  list-style:none;text-align:left;
+  max-width:340px;margin:0 auto 36px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.pricing-features li{
+  font-size:15px;color:#334155;
+  display:flex;align-items:center;gap:12px;font-weight:500;
+}
+.pricing-features li::before{
+  content:'';width:20px;height:20px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230078d4' stroke-width='2.5'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center;
+  background-size:contain;flex-shrink:0;
+}
+.pricing-device{
+  display:inline-block;margin-bottom:24px;
+  font-size:12px;color:#94a3b8;
+  background:#f1f5f9;padding:6px 12px;border-radius:20px;
+}
+.pricing-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--accent) 0%,#0ea5e9 100%);color:#fff;
+  padding:16px 40px;border-radius:8px;
+  font-size:16px;font-weight:600;
+  text-decoration:none;
+  box-shadow:0 4px 14px rgba(0,120,212,.4);
+  transition:all .2s ease;
+  border:none;cursor:pointer;
+}
+.pricing-cta:hover{
+  transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,120,212,.5);
+}
+.pricing-cta svg{width:18px;height:18px;}
+
 /* ── TECH STACK ── */
 .tech{background:var(--paper2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
 .tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
@@ -372,12 +436,13 @@ footer{
 <nav>
   <div class="nav-logo">JDRP <span>Report</span></div>
   <ul class="nav-links">
-    <li><a href="#features">Fitur</a></li>
-    <li><a href="#elements">Elemen</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#elements">Elements</a></li>
     <li><a href="#export">Export</a></li>
-    <li><a href="#workflow">Cara Kerja</a></li>
+    <li><a href="#workflow">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
   </ul>
-  <a href="#" class="nav-cta">Mulai Sekarang</a>
+  <a href="#" class="nav-cta">Get Started</a>
 </nav>
 
 <!-- HERO -->
@@ -385,30 +450,30 @@ footer{
   <div class="hero-left">
     <div class="hero-eyebrow">JDRP Report · v1.0</div>
     <h1 class="hero-title">
-      Desain laporan<br>tanpa batas <em>kreasi</em>
+      Design reports<br>without limits <em>of creativity</em>
     </h1>
     <p class="hero-sub">
-      JDRP Report adalah report designer dan viewer berbasis browser — drag & drop, data binding dinamis, dan export ke PDF, Excel, Word dalam satu platform.
+      JDRP Report is a browser-based report designer and viewer — drag & drop, dynamic data binding, and export to PDF, Excel, Word all in one platform.
     </p>
     <div class="hero-actions">
       <a href="./demo/report-designer.html" class="btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Lihat Demo
+        View Demo
       </a>
-      <a href="#features" class="btn-secondary">Pelajari fitur →</a>
+      <a href="#features" class="btn-secondary">Learn more →</a>
     </div>
     <div class="hero-stats">
       <div>
         <span class="hero-stat-val">12+</span>
-        <span class="hero-stat-label">Tipe elemen</span>
+        <span class="hero-stat-label">Element types</span>
       </div>
       <div>
         <span class="hero-stat-val">4</span>
-        <span class="hero-stat-label">Format export</span>
+        <span class="hero-stat-label">Export formats</span>
       </div>
       <div>
         <span class="hero-stat-val">30+</span>
-        <span class="hero-stat-label">Tipe barcode</span>
+        <span class="hero-stat-label">Barcode types</span>
       </div>
     </div>
   </div>
@@ -422,17 +487,17 @@ footer{
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="features-header">
-    <div class="section-tag">Fitur Utama</div>
-    <h2 class="section-title">Semua yang anda butuhkan<br>untuk membuat laporan profesional</h2>
-    <p class="section-sub">Dari desain visual hingga export multi-format — JDRP Report menangani semuanya.</p>
+    <div class="section-tag">Key Features</div>
+    <h2 class="section-title">Everything you need<br>to create professional reports</h2>
+    <p class="section-sub">From visual design to multi-format export — JDRP Report handles it all.</p>
   </div>
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon fi-green">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5c3a" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
       </div>
       <h3>Visual Designer</h3>
-      <p>Drag & drop elemen langsung ke canvas. Resize, snap ke grid, multi-select, dan undo/redo penuh.</p>
+      <p>Drag & drop elements directly onto canvas. Resize, snap to grid, multi-select, and full undo/redo.</p>
       <div class="tag-list">
         <span class="tag">snap</span>
         <span class="tag">multi-select</span>
@@ -442,10 +507,10 @@ footer{
     </div>
     <div class="feature-card">
       <div class="feature-icon fi-blue">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185fa5" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
       </div>
-      <h3>Data Binding Dinamis</h3>
-      <p>Koneksikan field langsung ke data source. Gunakan expression engine untuk kalkulasi dan format otomatis.</p>
+      <h3>Dynamic Data Binding</h3>
+      <p>Connect fields directly to data source. Use expression engine for calculations and automatic formatting.</p>
       <div class="tag-list">
         <span class="tag">{field}</span>
         <span class="tag">expression</span>
@@ -454,10 +519,10 @@ footer{
     </div>
     <div class="feature-card">
       <div class="feature-icon fi-amber">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#854f0b" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
       </div>
       <h3>CrossTab Report</h3>
-      <p>Buat laporan pivot otomatis dengan group header, footer, dan subtotal per kelompok data.</p>
+      <p>Create automatic pivot reports with group headers, footers, and subtotals per data group.</p>
       <div class="tag-list">
         <span class="tag">pivot</span>
         <span class="tag">subtotal</span>
@@ -466,10 +531,10 @@ footer{
     </div>
     <div class="feature-card">
       <div class="feature-icon fi-green">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a5c3a" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
       </div>
-      <h3>Chart Interaktif</h3>
-      <p>Integrasi Chart.js dengan 6 tipe chart — bar, line, pie, doughnut, radar, polar. Data dinamis dari source.</p>
+      <h3>Interactive Chart</h3>
+      <p>Chart.js integration with 6 chart types — bar, line, pie, doughnut, radar, polar. Dynamic data from source.</p>
       <div class="tag-list">
         <span class="tag">bar</span>
         <span class="tag">line</span>
@@ -479,10 +544,10 @@ footer{
     </div>
     <div class="feature-card">
       <div class="feature-icon fi-blue">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185fa5" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
       </div>
-      <h3>Peta Interaktif</h3>
-      <p>Tampilkan data geografis dengan jsVectorMap. Region click untuk URL atau hint tooltip. Export sebagai gambar.</p>
+      <h3>Interactive Map</h3>
+      <p>Display geographic data with jsVectorMap. Region click for URL or tooltip hint. Export as image.</p>
       <div class="tag-list">
         <span class="tag">World</span>
         <span class="tag">Indonesia</span>
@@ -492,10 +557,10 @@ footer{
     </div>
     <div class="feature-card">
       <div class="feature-icon fi-amber">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#854f0b" stroke-width="2"><path d="M3 5v14M7 5v14M13 5v14M17 5v14M21 5v14M10 5v14"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="2"><path d="M3 5v14M7 5v14M13 5v14M17 5v14M21 5v14M10 5v14"/></svg>
       </div>
       <h3>Barcode & QR Code</h3>
-      <p>30+ tipe barcode via bwip-js — CODE128, QR, EAN, UPC, PDF417, DataMatrix, dan banyak lagi.</p>
+      <p>30+ barcode types via bwip-js — CODE128, QR, EAN, UPC, PDF417, DataMatrix, and more.</p>
       <div class="tag-list">
         <span class="tag">CODE128</span>
         <span class="tag">QR</span>
@@ -505,10 +570,10 @@ footer{
     </div>
     <div class="feature-card">
       <div class="feature-icon fi-blue">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185fa5" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
       </div>
       <h3>Import JasperReports</h3>
-      <p>Import file .jrxml JasperReports langsung ke JDRP. Konversi otomatis elemen, band, dan expression ke format native.</p>
+      <p>Import .jrxml JasperReports files directly into JDRP. Auto-convert elements, bands, and expressions to native format.</p>
       <div class="tag-list">
         <span class="tag">.jrxml</span>
         <span class="tag">band</span>
@@ -523,41 +588,41 @@ footer{
 <section class="elements" id="elements">
   <div class="elements-header">
     <div>
-      <div class="section-tag">Tipe Elemen</div>
-      <h2 class="section-title">12 tipe elemen siap pakai</h2>
+      <div class="section-tag">Element Types</div>
+      <h2 class="section-title">12 ready-to-use element types</h2>
     </div>
-    <p style="max-width:280px;font-size:14px;color:var(--ink2);text-align:right;line-height:1.6;">Semua elemen mendukung data binding dan dapat diekspor sebagai PNG pada PDF, Excel, dan Word.</p>
+    <p style="max-width:280px;font-size:14px;color:var(--ink2);text-align:right;line-height:1.6;">All elements support data binding and can be exported as PNG in PDF, Excel, and Word.</p>
   </div>
   <div class="elements-grid">
 
     <div class="el-card">
       <div class="el-preview" style="background:#f0f7ff;">
-        <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#185fa5;">Aa</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:22px;color:#0078d4;">Aa</div>
       </div>
-      <div class="el-name">Teks & Field</div>
-      <div class="el-desc">Label statis atau field dinamis dengan expression</div>
+      <div class="el-name">Text & Field</div>
+      <div class="el-desc">Static label or dynamic field with expression</div>
     </div>
 
     <div class="el-card">
       <div class="el-preview" style="background:#f4faec;">
-        <svg width="48" height="40" viewBox="0 0 48 40"><rect x="4" y="4" width="40" height="32" rx="3" fill="none" stroke="#3b6d11" stroke-width="1.5"/><line x1="4" y1="14" x2="44" y2="14" stroke="#3b6d11" stroke-width="1"/><text x="24" y="28" text-anchor="middle" font-family="DM Mono" font-size="8" fill="#639922">table</text></svg>
+        <svg width="48" height="40" viewBox="0 0 48 40"><rect x="4" y="4" width="40" height="32" rx="3" fill="none" stroke="#0078d4" stroke-width="1.5"/><line x1="4" y1="14" x2="44" y2="14" stroke="#0078d4" stroke-width="1"/><text x="24" y="28" text-anchor="middle" font-family="DM Mono" font-size="8" fill="#0078d4">table</text></svg>
       </div>
-      <div class="el-name">Tabel</div>
-      <div class="el-desc">Header + data rows dari source atau statis</div>
+      <div class="el-name">Table</div>
+      <div class="el-desc">Header + data rows from source or static</div>
     </div>
 
     <div class="el-card">
       <div class="el-preview">
         <svg width="72" height="48" viewBox="0 0 72 48">
-          <rect x="6" y="32" width="10" height="10" fill="#185fa5"/>
-          <rect x="20" y="20" width="10" height="22" fill="#185fa5" opacity=".7"/>
-          <rect x="34" y="14" width="10" height="28" fill="#185fa5" opacity=".9"/>
-          <rect x="48" y="24" width="10" height="18" fill="#185fa5" opacity=".6"/>
-          <rect x="62" y="8" width="10" height="34" fill="#185fa5"/>
+          <rect x="6" y="32" width="10" height="10" fill="#0078d4"/>
+          <rect x="20" y="20" width="10" height="22" fill="#0078d4" opacity=".7"/>
+          <rect x="34" y="14" width="10" height="28" fill="#0078d4" opacity=".9"/>
+          <rect x="48" y="24" width="10" height="18" fill="#0078d4" opacity=".6"/>
+          <rect x="62" y="8" width="10" height="34" fill="#0078d4"/>
         </svg>
       </div>
       <div class="el-name">Chart</div>
-      <div class="el-desc">6 tipe — bar, line, pie, doughnut, radar, polar</div>
+      <div class="el-desc">6 types — bar, line, pie, doughnut, radar, polar</div>
     </div>
 
     <div class="el-card">
@@ -578,58 +643,58 @@ footer{
         </div>
       </div>
       <div class="el-name">Barcode</div>
-      <div class="el-desc">30+ tipe — CODE128, QR, EAN, UPC, PDF417...</div>
+      <div class="el-desc">30+ types — CODE128, QR, EAN, UPC, PDF417...</div>
     </div>
 
     <div class="el-card">
       <div class="el-preview">
         <svg width="60" height="44" viewBox="0 0 60 44">
-          <ellipse cx="30" cy="22" rx="24" ry="16" fill="none" stroke="#1D9E75" stroke-width="1.5"/>
-          <ellipse cx="30" cy="22" rx="14" ry="10" fill="none" stroke="#1D9E75" stroke-width="1"/>
-          <ellipse cx="30" cy="22" rx="6" ry="4" fill="#1D9E75" opacity=".3"/>
-          <line x1="6" y1="22" x2="54" y2="22" stroke="#1D9E75" stroke-width="1" stroke-dasharray="3,2"/>
-          <line x1="30" y1="6" x2="30" y2="38" stroke="#1D9E75" stroke-width="1" stroke-dasharray="3,2"/>
+          <ellipse cx="30" cy="22" rx="24" ry="16" fill="none" stroke="#0078d4" stroke-width="1.5"/>
+          <ellipse cx="30" cy="22" rx="14" ry="10" fill="none" stroke="#0078d4" stroke-width="1"/>
+          <ellipse cx="30" cy="22" rx="6" ry="4" fill="#0078d4" opacity=".3"/>
+          <line x1="6" y1="22" x2="54" y2="22" stroke="#0078d4" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="30" y1="6" x2="30" y2="38" stroke="#0078d4" stroke-width="1" stroke-dasharray="3,2"/>
         </svg>
       </div>
-      <div class="el-name">Peta</div>
-      <div class="el-desc">jsVectorMap — World, Indonesia, USA, dan lainnya</div>
+      <div class="el-name">Map</div>
+      <div class="el-desc">jsVectorMap — World, Indonesia, USA, and more</div>
     </div>
 
     <div class="el-card">
       <div class="el-preview">
         <svg width="60" height="44" viewBox="0 0 60 44">
-          <rect x="8" y="6" width="44" height="32" rx="4" fill="#E6F1FB" stroke="#185fa5" stroke-width="1.5"/>
+          <rect x="8" y="6" width="44" height="32" rx="4" fill="#E6F1FB" stroke="#0078d4" stroke-width="1.5"/>
           <path d="M8 16 L30 6 L52 16" fill="#B5D4F4"/>
-          <rect x="18" y="22" width="10" height="16" fill="#185fa5" opacity=".8" rx="1"/>
-          <rect x="32" y="18" width="10" height="20" fill="#185fa5" opacity=".6" rx="1"/>
+          <rect x="18" y="22" width="10" height="16" fill="#0078d4" opacity=".8" rx="1"/>
+          <rect x="32" y="18" width="10" height="20" fill="#0078d4" opacity=".6" rx="1"/>
         </svg>
       </div>
-      <div class="el-name">Gambar</div>
-      <div class="el-desc">URL atau base64, resize proporsional</div>
+      <div class="el-name">Image</div>
+      <div class="el-desc">URL or base64, proportional resize</div>
     </div>
 
     <div class="el-card">
       <div class="el-preview">
         <svg width="60" height="44" viewBox="0 0 60 44">
-          <polygon points="30,6 54,38 6,38" fill="none" stroke="#D85A30" stroke-width="1.5"/>
-          <circle cx="30" cy="22" r="14" fill="none" stroke="#D85A30" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <rect x="18" y="14" width="24" height="16" rx="2" fill="none" stroke="#D85A30" stroke-width="1.5"/>
+          <polygon points="30,6 54,38 6,38" fill="none" stroke="#0078d4" stroke-width="1.5"/>
+          <circle cx="30" cy="22" r="14" fill="none" stroke="#0078d4" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <rect x="18" y="14" width="24" height="16" rx="2" fill="none" stroke="#0078d4" stroke-width="1.5"/>
         </svg>
       </div>
       <div class="el-name">Shape</div>
-      <div class="el-desc">40+ bentuk — flowchart, basic, arrows, callout</div>
+      <div class="el-desc">40+ shapes — flowchart, basic, arrows, callout</div>
     </div>
 
     <div class="el-card">
-      <div class="el-preview" style="background:#f9f7f2;">
+      <div class="el-preview" style="background:#f3f3f7;">
         <svg width="60" height="44" viewBox="0 0 60 44">
           <line x1="4" y1="22" x2="56" y2="22" stroke="#888780" stroke-width="2"/>
           <rect x="4" y="8" width="52" height="28" rx="3" fill="none" stroke="#888780" stroke-width="1.5"/>
           <text x="30" y="37" text-anchor="middle" font-family="DM Mono" font-size="7" fill="#888780">Line · Rect</text>
         </svg>
       </div>
-      <div class="el-name">Garis & Kotak</div>
-      <div class="el-desc">Separator dan pembatas dekoratif</div>
+      <div class="el-name">Line & Box</div>
+      <div class="el-desc">Decorative separators and borders</div>
     </div>
 
   </div>
@@ -638,46 +703,46 @@ footer{
 <!-- EXPORT -->
 <section class="export-section" id="export">
   <div class="section-tag">Multi-format Export</div>
-  <h2 class="section-title">Export sekali,<br>buka di mana saja</h2>
-  <p class="section-sub">Semua elemen — barcode, chart, map, dan shape — dirender sebagai gambar PNG nyata di setiap format export.</p>
+  <h2 class="section-title">Export once,<br>open anywhere</h2>
+  <p class="section-sub">All elements — barcode, chart, map, and shape — are rendered as real PNG images in every export format.</p>
   <div class="export-grid">
     <div class="export-card">
       <span class="export-badge">.pdf</span>
-      <p>Multi-halaman dengan html2pdf. Render per chunk untuk data besar.</p>
+      <p>Multi-page with html2pdf. Chunk rendering for large data.</p>
       <div class="export-features">
         <div class="export-feat">Portrait & landscape</div>
-        <div class="export-feat">Multi-page otomatis</div>
-        <div class="export-feat">Margin custom</div>
-        <div class="export-feat">Barcode PNG nyata</div>
+        <div class="export-feat">Auto multi-page</div>
+        <div class="export-feat">Custom margin</div>
+        <div class="export-feat">Real barcode PNG</div>
       </div>
     </div>
     <div class="export-card">
       <span class="export-badge">.xlsx</span>
-      <p>ExcelJS native dengan embedded image — chart, barcode, dan map sebagai gambar.</p>
+      <p>ExcelJS native with embedded image — chart, barcode, and map as images.</p>
       <div class="export-features">
         <div class="export-feat">ExcelJS addImage</div>
-        <div class="export-feat">Cell styling penuh</div>
+        <div class="export-feat">Full cell styling</div>
         <div class="export-feat">Freeze header</div>
         <div class="export-feat">Formula support</div>
       </div>
     </div>
     <div class="export-card">
       <span class="export-badge">.docx</span>
-      <p>docx.js native dengan ImageRun — setiap elemen visual jadi gambar inline Word.</p>
+      <p>docx.js native with ImageRun — every visual element becomes inline Word image.</p>
       <div class="export-features">
         <div class="export-feat">docx.js native</div>
-        <div class="export-feat">ImageRun per elemen</div>
+        <div class="export-feat">ImageRun per element</div>
         <div class="export-feat">Table support</div>
         <div class="export-feat">Font & alignment</div>
       </div>
     </div>
     <div class="export-card">
-      <span class="export-badge">Cetak</span>
-      <p>Print langsung dari browser via iframe dengan resolusi penuh. Canvas barcode di-inject sebagai img.</p>
+      <span class="export-badge">Print</span>
+      <p>Print directly from browser via iframe with full resolution. Canvas barcode injected as img.</p>
       <div class="export-features">
         <div class="export-feat">Print preview</div>
         <div class="export-feat">CSS print rules</div>
-        <div class="export-feat">Page break otomatis</div>
+        <div class="export-feat">Auto page break</div>
         <div class="export-feat">Barcode PNG inject</div>
       </div>
     </div>
@@ -686,65 +751,88 @@ footer{
 
 <!-- WORKFLOW -->
 <section class="workflow" id="workflow">
-  <div class="section-tag">Cara Kerja</div>
-  <h2 class="section-title">Dari desain ke laporan<br>dalam 4 langkah</h2>
+  <div class="section-tag">How It Works</div>
+  <h2 class="section-title">From design to report<br>in 4 steps</h2>
   <div class="workflow-steps">
     <div class="workflow-step">
       <div class="step-num">01</div>
-      <div class="step-title">Rancang layout</div>
-      <div class="step-desc">Buka designer, drag elemen ke canvas, atur band header-detail-footer sesuai kebutuhan.</div>
+      <div class="step-title">Design layout</div>
+      <div class="step-desc">Open designer, drag elements to canvas, arrange band header-detail-footer as needed.</div>
       <div class="step-arrow">→</div>
     </div>
     <div class="workflow-step">
       <div class="step-num">02</div>
       <div class="step-title">Bind data</div>
-      <div class="step-desc">Hubungkan field ke data source JSON. Tulis expression untuk kalkulasi dan format dinamis.</div>
+      <div class="step-desc">Connect fields to JSON data source. Write expressions for calculations and dynamic formatting.</div>
       <div class="step-arrow">→</div>
     </div>
     <div class="workflow-step">
       <div class="step-num">03</div>
-      <div class="step-title">Preview live</div>
-      <div class="step-desc">Viewer merender laporan secara real-time. Navigasi antar halaman, zoom, dan filter data.</div>
+      <div class="step-title">Live preview</div>
+      <div class="step-desc">Viewer renders reports in real-time. Navigate pages, zoom, and filter data.</div>
       <div class="step-arrow">→</div>
     </div>
     <div class="workflow-step">
       <div class="step-num">04</div>
-      <div class="step-title">Export & cetak</div>
-      <div class="step-desc">Pilih format PDF, Excel, Word, atau cetak langsung — semua elemen visual terkonversi sempurna.</div>
+      <div class="step-title">Export & print</div>
+      <div class="step-desc">Choose PDF, Excel, Word, or print directly — all visual elements converted perfectly.</div>
     </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-tag">Pricing</div>
+  <h2 class="section-title">Simple pricing,<br>lifetime value</h2>
+  <p class="section-sub">One-time payment. No subscriptions. No hidden fees.</p>
+  <div class="pricing-card">
+    <div class="pricing-badge">Lifetime License</div>
+    <p class="pricing-desc">Contact us for pricing. Pay once, own forever. Full access to all features and future updates.</p>
+    <span class="pricing-device">1 Device License</span>
+    <ul class="pricing-features">
+      <li>All 12+ element types</li>
+      <li>All export formats (PDF, Excel, Word, Print)</li>
+      <li>Import JasperReports (.jrxml)</li>
+      <li>All chart, map & barcode types</li>
+      <li>Future updates included</li>
+    </ul>
+    <a href="mailto:davius02@gmail.com?subject=JDRP%20Report%20License%20Purchase" class="pricing-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Get Lifetime License
+    </a>
   </div>
 </section>
 
 <!-- TECH STACK -->
 <section class="tech">
-  <div class="section-tag">Teknologi</div>
-  <h2 class="section-title">Dibangun di atas library terpercaya</h2>
-  <p class="section-sub">Semua dependensi diload lokal dengan CDN fallback — bekerja bahkan tanpa koneksi internet.</p>
+  <div class="section-tag">Technology</div>
+  <h2 class="section-title">Built on trusted libraries</h2>
+  <p class="section-sub">All dependencies loaded locally with CDN fallback — works even without internet connection.</p>
   <div class="tech-grid">
     <div class="tech-card">
       <div class="tech-badge">Rendering</div>
       <h4>bwip-js</h4>
-      <p>Barcode generator — 30+ symbology, render ke Canvas, export PNG.</p>
+      <p>Barcode generator — 30+ symbology, render to Canvas, export PNG.</p>
     </div>
     <div class="tech-card">
-      <div class="tech-badge">Visualisasi</div>
+      <div class="tech-badge">Visualization</div>
       <h4>Chart.js</h4>
-      <p>Chart interaktif — bar, line, pie, radar, doughnut, polar area.</p>
+      <p>Interactive chart — bar, line, pie, radar, doughnut, polar area.</p>
     </div>
     <div class="tech-card">
-      <div class="tech-badge">Peta</div>
+      <div class="tech-badge">Map</div>
       <h4>jsVectorMap</h4>
-      <p>SVG map engine — region click, tooltip, warna custom per region.</p>
+      <p>SVG map engine — region click, tooltip, custom color per region.</p>
     </div>
     <div class="tech-card">
       <div class="tech-badge">Export Excel</div>
       <h4>ExcelJS</h4>
-      <p>Workbook native — embed image, cell style, formula, freeze row.</p>
+      <p>Native workbook — embed image, cell style, formula, freeze row.</p>
     </div>
     <div class="tech-card">
       <div class="tech-badge">Export Word</div>
       <h4>docx.js</h4>
-      <p>DOCX native — TableCell, ImageRun, TextRun, paragraph styling.</p>
+      <p>Native DOCX — TableCell, ImageRun, TextRun, paragraph styling.</p>
     </div>
     <div class="tech-card">
       <div class="tech-badge">Export PDF</div>
@@ -770,17 +858,17 @@ footer{
       <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;">Creator & Developer</div>
       <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,40px);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;color:var(--ink);">Jimmy Andrian Davius</h2>
       <p style="font-size:15px;color:var(--ink2);line-height:1.7;max-width:520px;margin-bottom:20px;">
-        Perancang dan pengembang JDRP Report — sebuah report designer dan viewer berbasis browser yang dibangun dari nol dengan fokus pada kemudahan desain, fleksibilitas data binding, dan kualitas output export.
+        Designer and developer of JDRP Report — a browser-based report designer and viewer built from scratch with focus on ease of design, flexible data binding, and quality export output.
       </p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <span style="font-family:'DM Mono',monospace;font-size:11px;background:var(--accent-light);color:var(--accent);padding:5px 12px;border-radius:4px;">Report Engine</span>
-        <span style="font-family:'DM Mono',monospace;font-size:11px;background:#e6f1fb;color:#185fa5;padding:5px 12px;border-radius:4px;">Frontend Dev</span>
-        <span style="font-family:'DM Mono',monospace;font-size:11px;background:#faeeda;color:#854f0b;padding:5px 12px;border-radius:4px;">UI/UX</span>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;background:#e6f1fb;color:#0078d4;padding:5px 12px;border-radius:4px;">Frontend Dev</span>
+        <span style="font-family:'DM Mono',monospace;font-size:11px;background:#faeeda;color:#b36f00;padding:5px 12px;border-radius:4px;">UI/UX</span>
       </div>
       <div style="margin-top:24px;">
-        <a href="mailto:davius02@gmail.com" style="display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:13px;background:var(--accent);color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:500;transition:background .2s;">
+        <a href="mailto:davius02@gmail.com" style="display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:13px;background:var(--accent);color:#fff;padding:10px 20px;border-radius:4px;text-decoration:none;font-weight:500;transition:background .2s;box-shadow:0 2px 8px rgba(0,120,212,.3);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Hubungi via Email
+          Contact via Email
         </a>
       </div>
     </div>
@@ -790,8 +878,8 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">JDRP <span>Report</span></div>
-  <div class="footer-copy">© 2025 JDRP Report · Dibuat oleh <strong style="color:var(--ink);">Jimmy Andrian Davius</strong></div>
-  <div class="footer-made">Dibangun dengan presisi</div>
+  <div class="footer-copy">© 2025 JDRP Report · Created by <strong style="color:var(--ink);">Jimmy Andrian Davius</strong></div>
+  <div class="footer-made">Built with precision</div>
 </footer>
 
 <script>
