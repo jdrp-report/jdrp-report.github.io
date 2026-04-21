@@ -98,6 +98,10 @@ Semua elemen (barcode, chart, map, shape) dirender sebagai gambar PNG nyata di s
 
 [Lihat Demo](demo/report-designer.html)
 
+## Kontak
+
+Hubungi saya via email: [davius02@gmail.com](mailto:davius02@gmail.com)
+
 ## Lisensi
 
 MIT License
