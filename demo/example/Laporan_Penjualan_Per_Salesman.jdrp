@@ -1,0 +1,646 @@
+{
+  "_type": "jdrp",
+  "version": "1.0",
+  "engine": "jsreport",
+  "meta": {
+    "name": "Laporan Penjualan Per Salesman",
+    "created": "2026-04-17T00:00:00.000Z",
+    "modified": "2026-04-19T04:45:04.702Z",
+    "author": "JDRP Designer"
+  },
+  "page": {
+    "size": "A4",
+    "orientation": "landscape",
+    "margin": 20,
+    "width": 1123,
+    "height": 794
+  },
+  "dataFields": [
+    {
+      "name": "salesman",
+      "label": "Salesman"
+    },
+    {
+      "name": "tanggal",
+      "label": "Tanggal"
+    },
+    {
+      "name": "no_order",
+      "label": "No Order"
+    },
+    {
+      "name": "pelanggan",
+      "label": "Pelanggan"
+    },
+    {
+      "name": "produk",
+      "label": "Produk"
+    },
+    {
+      "name": "qty",
+      "label": "Qty"
+    },
+    {
+      "name": "nilai",
+      "label": "Nilai"
+    }
+  ],
+  "detailDataSource": {
+    "key": "items",
+    "data": [
+      {
+        "salesman": "Andi Prasetyo",
+        "tanggal": "01/04/2026",
+        "no_order": "ORD-001",
+        "pelanggan": "PT. Abadi Jaya",
+        "produk": "Laptop ASUS",
+        "qty": 3,
+        "nilai": 25500000
+      },
+      {
+        "salesman": "Andi Prasetyo",
+        "tanggal": "05/04/2026",
+        "no_order": "ORD-004",
+        "pelanggan": "CV. Maju Terus",
+        "produk": "Monitor LG",
+        "qty": 5,
+        "nilai": 16000000
+      },
+      {
+        "salesman": "Andi Prasetyo",
+        "tanggal": "12/04/2026",
+        "no_order": "ORD-009",
+        "pelanggan": "PT. Sukses Bersama",
+        "produk": "Keyboard Logitech",
+        "qty": 20,
+        "nilai": 5000000
+      },
+      {
+        "salesman": "Budi Hartono",
+        "tanggal": "02/04/2026",
+        "no_order": "ORD-002",
+        "pelanggan": "UD. Sejahtera",
+        "produk": "Printer Epson",
+        "qty": 4,
+        "nilai": 8400000
+      },
+      {
+        "salesman": "Budi Hartono",
+        "tanggal": "08/04/2026",
+        "no_order": "ORD-006",
+        "pelanggan": "PT. Global Tech",
+        "produk": "Scanner Canon",
+        "qty": 2,
+        "nilai": 9000000
+      },
+      {
+        "salesman": "Citra Dewi",
+        "tanggal": "03/04/2026",
+        "no_order": "ORD-003",
+        "pelanggan": "PT. Mandiri Utama",
+        "produk": "Laptop Dell",
+        "qty": 5,
+        "nilai": 47500000
+      },
+      {
+        "salesman": "Citra Dewi",
+        "tanggal": "10/04/2026",
+        "no_order": "ORD-007",
+        "pelanggan": "CV. Teknologi Maju",
+        "produk": "Laptop Dell",
+        "qty": 2,
+        "nilai": 19000000
+      },
+      {
+        "salesman": "Citra Dewi",
+        "tanggal": "15/04/2026",
+        "no_order": "ORD-010",
+        "pelanggan": "PT. Bintang Timur",
+        "produk": "UPS APC",
+        "qty": 10,
+        "nilai": 12000000
+      }
+    ]
+  },
+  "detailDataKey": "items",
+  "bands": [
+    {
+      "id": "band-header",
+      "name": "Report Header",
+      "height": 88,
+      "elements": [
+        {
+          "id": "el_h1",
+          "type": "text",
+          "x": 16,
+          "y": 28,
+          "w": 1083,
+          "h": 26,
+          "content": "LAPORAN PENJUALAN PER SALESMAN — APRIL 2026",
+          "fontFamily": "Arial",
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#7c3aed",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h2",
+          "type": "text",
+          "x": 16,
+          "y": 58,
+          "w": 1083,
+          "h": 14,
+          "content": "PT. Distribusi Nusantara  |  Divisi Sales & Marketing",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#6b7280",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h3",
+          "type": "line",
+          "x": 16,
+          "y": 78,
+          "w": 1083,
+          "h": 2,
+          "color": "#7c3aed",
+          "borderWidth": 2
+        }
+      ]
+    },
+    {
+      "id": "band-page-header",
+      "name": "Page Header",
+      "height": 24,
+      "elements": [
+        {
+          "id": "el_ph1",
+          "type": "rectangle",
+          "x": 16,
+          "y": 0,
+          "w": 1083,
+          "h": 24,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#7c3aed"
+        },
+        {
+          "id": "el_ph2",
+          "type": "text",
+          "x": 20,
+          "y": 5,
+          "w": 80,
+          "h": 14,
+          "content": "Tanggal",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph3",
+          "type": "text",
+          "x": 104,
+          "y": 5,
+          "w": 100,
+          "h": 14,
+          "content": "No Order",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph4",
+          "type": "text",
+          "x": 208,
+          "y": 5,
+          "w": 240,
+          "h": 14,
+          "content": "Pelanggan",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph5",
+          "type": "text",
+          "x": 452,
+          "y": 5,
+          "w": 220,
+          "h": 14,
+          "content": "Produk",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph6",
+          "type": "text",
+          "x": 676,
+          "y": 5,
+          "w": 60,
+          "h": 14,
+          "content": "Qty",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph7",
+          "type": "text",
+          "x": 740,
+          "y": 5,
+          "w": 356,
+          "h": 14,
+          "content": "Nilai Penjualan",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-group-header",
+      "type": "group-header",
+      "name": "Group Header (salesman)",
+      "height": 28,
+      "groupByFields": [
+        "salesman"
+      ],
+      "elements": [
+        {
+          "id": "el_gh1",
+          "type": "rectangle",
+          "x": 16,
+          "y": 0,
+          "w": 1083,
+          "h": 28,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#f3f0ff"
+        },
+        {
+          "id": "el_gh2",
+          "type": "text",
+          "x": 20,
+          "y": 6,
+          "w": 80,
+          "h": 16,
+          "content": "Salesman:",
+          "fontFamily": "Arial",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#7c3aed",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_gh3",
+          "type": "field",
+          "x": 104,
+          "y": 6,
+          "w": 340,
+          "h": 16,
+          "content": "{item.salesman}",
+          "fontFamily": "Arial",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#4c1d95",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_gh4",
+          "type": "text",
+          "x": 676,
+          "y": 6,
+          "w": 420,
+          "h": 16,
+          "content": "Jumlah Transaksi: -",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#7c3aed",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "IIF(COUNT(items)==COUNT(items),'Jumlah Transaksi: ' + COUNT(items),COUNT(items))"
+        }
+      ]
+    },
+    {
+      "id": "band-detail",
+      "name": "Detail",
+      "height": 22,
+      "elements": [
+        {
+          "id": "el_d1",
+          "type": "field",
+          "x": 20,
+          "y": 4,
+          "w": 80,
+          "h": 14,
+          "content": "{item.tanggal}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#374151",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d2",
+          "type": "field",
+          "x": 104,
+          "y": 4,
+          "w": 100,
+          "h": 14,
+          "content": "{item.no_order}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#7c3aed",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d3",
+          "type": "field",
+          "x": 208,
+          "y": 4,
+          "w": 240,
+          "h": 14,
+          "content": "{item.pelanggan}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111827",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d4",
+          "type": "field",
+          "x": 452,
+          "y": 4,
+          "w": 220,
+          "h": 14,
+          "content": "{item.produk}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#374151",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d5",
+          "type": "field",
+          "x": 676,
+          "y": 4,
+          "w": 60,
+          "h": 14,
+          "content": "{item.qty}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#374151",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d6",
+          "type": "field",
+          "x": 740,
+          "y": 4,
+          "w": 356,
+          "h": 14,
+          "content": "{item.nilai}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111827",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT({item.nilai},currency,id-ID)"
+        },
+        {
+          "id": "el_d7",
+          "type": "line",
+          "x": 16,
+          "y": 20,
+          "w": 1083,
+          "h": 1,
+          "color": "#e9d5ff",
+          "borderWidth": 1
+        }
+      ]
+    },
+    {
+      "id": "band-group-footer",
+      "type": "group-footer",
+      "name": "Group Footer (salesman)",
+      "height": 28,
+      "groupByFields": [
+        "salesman"
+      ],
+      "elements": [
+        {
+          "id": "el_gf1",
+          "type": "rectangle",
+          "x": 16,
+          "y": 0,
+          "w": 1083,
+          "h": 28,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#ede9fe"
+        },
+        {
+          "id": "el_gf2",
+          "type": "text",
+          "x": 20,
+          "y": 6,
+          "w": 716,
+          "h": 16,
+          "content": "Total Penjualan:",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#4c1d95",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_gf3",
+          "type": "text",
+          "x": 740,
+          "y": 6,
+          "w": 356,
+          "h": 16,
+          "content": "TOTAL",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#4c1d95",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT(SUM(items,nilai),currency,id-ID)"
+        }
+      ]
+    },
+    {
+      "id": "band-page-footer",
+      "name": "Page Footer",
+      "height": 20,
+      "elements": []
+    },
+    {
+      "id": "band-footer",
+      "name": "Report Footer",
+      "height": 36,
+      "elements": [
+        {
+          "id": "el_f1",
+          "type": "line",
+          "x": 16,
+          "y": 2,
+          "w": 1083,
+          "h": 2,
+          "color": "#7c3aed",
+          "borderWidth": 2
+        },
+        {
+          "id": "el_f2",
+          "type": "text",
+          "x": 16,
+          "y": 12,
+          "w": 700,
+          "h": 16,
+          "content": "Grand Total Seluruh Penjualan April 2026",
+          "fontFamily": "Arial",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#4c1d95",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_f3",
+          "type": "text",
+          "x": 740,
+          "y": 12,
+          "w": 356,
+          "h": 16,
+          "content": "Rp 142.400.000",
+          "fontFamily": "Arial",
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "color": "#7c3aed",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    }
+  ],
+  "jsreport": {
+    "template": {
+      "recipe": "chrome-pdf",
+      "engine": "handlebars",
+      "chrome": {
+        "displayHeaderFooter": true,
+        "marginTop": "20px",
+        "marginBottom": "20px",
+        "marginLeft": "20px",
+        "marginRight": "20px",
+        "format": "A4",
+        "landscape": true
+      }
+    }
+  }
+}

@@ -1,0 +1,700 @@
+{
+  "_type": "jdrp",
+  "version": "1.0",
+  "engine": "jsreport",
+  "meta": {
+    "name": "Laporan Stok Barang",
+    "created": "2026-04-17T00:00:00.000Z",
+    "modified": "2026-04-19T04:26:28.969Z",
+    "author": "JDRP Designer"
+  },
+  "page": {
+    "size": "A4",
+    "orientation": "portrait",
+    "margin": 20,
+    "width": 794,
+    "height": 1123
+  },
+  "dataFields": [
+    {
+      "name": "kategori",
+      "label": "Kategori"
+    },
+    {
+      "name": "kode",
+      "label": "Kode"
+    },
+    {
+      "name": "nama_barang",
+      "label": "Nama Barang"
+    },
+    {
+      "name": "satuan",
+      "label": "Satuan"
+    },
+    {
+      "name": "stok",
+      "label": "Stok"
+    },
+    {
+      "name": "harga_beli",
+      "label": "Harga Beli"
+    },
+    {
+      "name": "nilai_total",
+      "label": "Nilai Total"
+    },
+    {
+      "name": "status",
+      "label": "Status"
+    }
+  ],
+  "detailDataSource": {
+    "key": "items",
+    "data": [
+      {
+        "kategori": "Elektronik",
+        "kode": "ELK-001",
+        "nama_barang": "Laptop Dell Inspiron 15",
+        "satuan": "Unit",
+        "stok": 12,
+        "harga_beli": 9500000,
+        "nilai_total": 114000000,
+        "status": "Normal"
+      },
+      {
+        "kategori": "Elektronik",
+        "kode": "ELK-002",
+        "nama_barang": "Printer Epson L3210",
+        "satuan": "Unit",
+        "stok": 3,
+        "harga_beli": 2100000,
+        "nilai_total": 6300000,
+        "status": "Hampir Habis"
+      },
+      {
+        "kategori": "Elektronik",
+        "kode": "ELK-003",
+        "nama_barang": "Scanner Canon DR-C225W",
+        "satuan": "Unit",
+        "stok": 8,
+        "harga_beli": 4500000,
+        "nilai_total": 36000000,
+        "status": "Normal"
+      },
+      {
+        "kategori": "ATK",
+        "kode": "ATK-001",
+        "nama_barang": "Kertas HVS A4 80gsm",
+        "satuan": "Rim",
+        "stok": 150,
+        "harga_beli": 55000,
+        "nilai_total": 8250000,
+        "status": "Normal"
+      },
+      {
+        "kategori": "ATK",
+        "kode": "ATK-002",
+        "nama_barang": "Ballpoint Pilot G2",
+        "satuan": "Lusin",
+        "stok": 25,
+        "harga_beli": 48000,
+        "nilai_total": 1200000,
+        "status": "Normal"
+      },
+      {
+        "kategori": "ATK",
+        "kode": "ATK-003",
+        "nama_barang": "Map Plastik A4",
+        "satuan": "Pack",
+        "stok": 2,
+        "harga_beli": 35000,
+        "nilai_total": 70000,
+        "status": "Hampir Habis"
+      },
+      {
+        "kategori": "Furniture",
+        "kode": "FRN-001",
+        "nama_barang": "Meja Kerja Kayu Jati",
+        "satuan": "Unit",
+        "stok": 6,
+        "harga_beli": 2800000,
+        "nilai_total": 16800000,
+        "status": "Normal"
+      },
+      {
+        "kategori": "Furniture",
+        "kode": "FRN-002",
+        "nama_barang": "Kursi Ergonomis Premium",
+        "satuan": "Unit",
+        "stok": 0,
+        "harga_beli": 3500000,
+        "nilai_total": 0,
+        "status": "Habis"
+      }
+    ]
+  },
+  "detailDataKey": "items",
+  "bands": [
+    {
+      "id": "band-header",
+      "name": "Report Header",
+      "height": 91,
+      "elements": [
+        {
+          "id": "el_h1",
+          "type": "rectangle",
+          "x": 16,
+          "y": 24,
+          "w": 754,
+          "h": 60,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#065f46"
+        },
+        {
+          "id": "el_h2",
+          "type": "text",
+          "x": 28,
+          "y": 34,
+          "w": 500,
+          "h": 26,
+          "content": "LAPORAN STOK BARANG GUDANG",
+          "fontFamily": "Arial",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "color": "#ffffff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h3",
+          "type": "text",
+          "x": 28,
+          "y": 62,
+          "w": 400,
+          "h": 16,
+          "content": "Per Tanggal: 17 April 2026  |  Gudang Pusat Jakarta",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#a7f3d0",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-page-header",
+      "name": "Page Header",
+      "height": 24,
+      "elements": [
+        {
+          "id": "el_ph1",
+          "type": "rectangle",
+          "x": 16,
+          "y": 0,
+          "w": 754,
+          "h": 24,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#d1fae5"
+        },
+        {
+          "id": "el_ph2",
+          "type": "text",
+          "x": 20,
+          "y": 5,
+          "w": 60,
+          "h": 14,
+          "content": "Kode",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph3",
+          "type": "text",
+          "x": 84,
+          "y": 5,
+          "w": 240,
+          "h": 14,
+          "content": "Nama Barang",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph4",
+          "type": "text",
+          "x": 328,
+          "y": 5,
+          "w": 50,
+          "h": 14,
+          "content": "Sat.",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph5",
+          "type": "text",
+          "x": 382,
+          "y": 5,
+          "w": 60,
+          "h": 14,
+          "content": "Stok",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph6",
+          "type": "text",
+          "x": 446,
+          "y": 5,
+          "w": 130,
+          "h": 14,
+          "content": "Harga Beli",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph7",
+          "type": "text",
+          "x": 580,
+          "y": 5,
+          "w": 130,
+          "h": 14,
+          "content": "Nilai Total",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph8",
+          "type": "text",
+          "x": 714,
+          "y": 5,
+          "w": 56,
+          "h": 14,
+          "content": "Status",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-group-header",
+      "type": "group-header",
+      "name": "Group Header (kategori)",
+      "height": 24,
+      "groupByFields": [
+        "kategori"
+      ],
+      "elements": [
+        {
+          "id": "el_gh1",
+          "type": "rectangle",
+          "x": 16,
+          "y": 0,
+          "w": 754,
+          "h": 24,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#ecfdf5"
+        },
+        {
+          "id": "el_gh2",
+          "type": "text",
+          "x": 20,
+          "y": 5,
+          "w": 80,
+          "h": 14,
+          "content": "KATEGORI:",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_gh3",
+          "type": "field",
+          "x": 104,
+          "y": 5,
+          "w": 200,
+          "h": 14,
+          "content": "{item.kategori}",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-detail",
+      "name": "Detail",
+      "height": 22,
+      "elements": [
+        {
+          "id": "el_d1",
+          "type": "field",
+          "x": 20,
+          "y": 4,
+          "w": 60,
+          "h": 14,
+          "content": "{item.kode}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#6b7280",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d2",
+          "type": "field",
+          "x": 84,
+          "y": 4,
+          "w": 240,
+          "h": 14,
+          "content": "{item.nama_barang}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d3",
+          "type": "field",
+          "x": 328,
+          "y": 4,
+          "w": 50,
+          "h": 14,
+          "content": "{item.satuan}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#6b7280",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d4",
+          "type": "field",
+          "x": 382,
+          "y": 4,
+          "w": 60,
+          "h": 14,
+          "content": "{item.stok}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#111",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d5",
+          "type": "field",
+          "x": 446,
+          "y": 4,
+          "w": 130,
+          "h": 14,
+          "content": "{item.harga_beli}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT({item.harga_beli},currency,id-ID)"
+        },
+        {
+          "id": "el_d6",
+          "type": "field",
+          "x": 580,
+          "y": 4,
+          "w": 130,
+          "h": 14,
+          "content": "{item.nilai_total}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT({item.nilai_total},currency,id-ID)"
+        },
+        {
+          "id": "el_d7",
+          "type": "field",
+          "x": 714,
+          "y": 4,
+          "w": 56,
+          "h": 14,
+          "content": "{item.status}",
+          "fontFamily": "Arial",
+          "fontSize": 8,
+          "fontWeight": "normal",
+          "color": "#065f46",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d8",
+          "type": "line",
+          "x": 16,
+          "y": 20,
+          "w": 754,
+          "h": 1,
+          "color": "#d1fae5",
+          "borderWidth": 1
+        }
+      ]
+    },
+    {
+      "id": "band-group-footer",
+      "type": "group-footer",
+      "name": "Group Footer (kategori)",
+      "height": 24,
+      "groupByFields": [
+        "kategori"
+      ],
+      "elements": [
+        {
+          "id": "el_gf1",
+          "type": "rectangle",
+          "x": 16,
+          "y": 0,
+          "w": 754,
+          "h": 24,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#d1fae5"
+        },
+        {
+          "id": "el_gf2",
+          "type": "text",
+          "x": 20,
+          "y": 5,
+          "w": 355,
+          "h": 14,
+          "content": "Subtotal Kategori:",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_gf3",
+          "type": "text",
+          "x": 382,
+          "y": 5,
+          "w": 60,
+          "h": 14,
+          "content": "TOTAL_STOK",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "SUM(items,stok)"
+        },
+        {
+          "id": "el_gf4",
+          "type": "text",
+          "x": 580,
+          "y": 5,
+          "w": 130,
+          "h": 14,
+          "content": "TOTAL_NILAI",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT(SUM(items,nilai_total),currency,id-ID)"
+        }
+      ]
+    },
+    {
+      "id": "band-page-footer",
+      "name": "Page Footer",
+      "height": 59,
+      "elements": [
+        {
+          "id": "el_1776571438569",
+          "type": "text",
+          "x": 16,
+          "y": 18,
+          "w": 360,
+          "h": 16,
+          "content": "",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "'Total Seluruh Item: '+COUNT(items)+' produk | 3 kategori'"
+        },
+        {
+          "id": "el_1776571438570",
+          "type": "text",
+          "x": 580,
+          "y": 18,
+          "w": 190,
+          "h": 16,
+          "content": "Grand Total Nilai",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#065f46",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "'Grand Total : '+FORMAT(SUM(items, nilai_total), currency, id-ID)"
+        },
+        {
+          "id": "el_1776571438571",
+          "type": "line",
+          "x": 16,
+          "y": 8,
+          "w": 754,
+          "h": 2,
+          "color": "#065f46",
+          "borderWidth": 2
+        }
+      ],
+      "showAfterDetail": true
+    },
+    {
+      "id": "band-footer",
+      "name": "Report Footer",
+      "height": 113,
+      "elements": []
+    }
+  ],
+  "jsreport": {
+    "template": {
+      "recipe": "chrome-pdf",
+      "engine": "handlebars",
+      "chrome": {
+        "displayHeaderFooter": true,
+        "marginTop": "20px",
+        "marginBottom": "20px",
+        "marginLeft": "20px",
+        "marginRight": "20px",
+        "format": "A4",
+        "landscape": false
+      }
+    }
+  }
+}

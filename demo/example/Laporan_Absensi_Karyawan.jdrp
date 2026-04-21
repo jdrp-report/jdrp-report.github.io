@@ -1,0 +1,665 @@
+{
+  "_type": "jdrp",
+  "version": "1.0",
+  "engine": "jsreport",
+  "meta": {
+    "name": "Laporan Absensi Karyawan",
+    "created": "2026-04-17T00:00:00.000Z",
+    "modified": "2026-04-19T04:12:05.241Z",
+    "author": "JDRP Designer"
+  },
+  "page": {
+    "size": "A4",
+    "orientation": "portrait",
+    "margin": 20,
+    "width": 794,
+    "height": 1123
+  },
+  "dataFields": [
+    {
+      "name": "departemen",
+      "label": "Departemen"
+    },
+    {
+      "name": "nik",
+      "label": "NIK"
+    },
+    {
+      "name": "nama",
+      "label": "Nama Karyawan"
+    },
+    {
+      "name": "hadir",
+      "label": "Hadir"
+    },
+    {
+      "name": "izin",
+      "label": "Izin"
+    },
+    {
+      "name": "alpha",
+      "label": "Alpha"
+    },
+    {
+      "name": "persen_hadir",
+      "label": "% Hadir"
+    }
+  ],
+  "detailDataSource": {
+    "key": "items",
+    "data": [
+      {
+        "departemen": "Engineering",
+        "nik": "ENG001",
+        "nama": "Budi Santoso",
+        "hadir": 22,
+        "izin": 1,
+        "alpha": 0,
+        "persen_hadir": "95.6%"
+      },
+      {
+        "departemen": "Engineering",
+        "nik": "ENG002",
+        "nama": "Siti Rahayu",
+        "hadir": 20,
+        "izin": 2,
+        "alpha": 1,
+        "persen_hadir": "86.9%"
+      },
+      {
+        "departemen": "Engineering",
+        "nik": "ENG003",
+        "nama": "Ahmad Fauzi",
+        "hadir": 23,
+        "izin": 0,
+        "alpha": 0,
+        "persen_hadir": "100%"
+      },
+      {
+        "departemen": "Marketing",
+        "nik": "MKT001",
+        "nama": "Dewi Lestari",
+        "hadir": 21,
+        "izin": 2,
+        "alpha": 0,
+        "persen_hadir": "91.3%"
+      },
+      {
+        "departemen": "Marketing",
+        "nik": "MKT002",
+        "nama": "Reza Firmansyah",
+        "hadir": 19,
+        "izin": 1,
+        "alpha": 3,
+        "persen_hadir": "82.6%"
+      },
+      {
+        "departemen": "Finance",
+        "nik": "FIN001",
+        "nama": "Rina Widya",
+        "hadir": 23,
+        "izin": 0,
+        "alpha": 0,
+        "persen_hadir": "100%"
+      },
+      {
+        "departemen": "Finance",
+        "nik": "FIN002",
+        "nama": "Hendra Gunawan",
+        "hadir": 22,
+        "izin": 1,
+        "alpha": 0,
+        "persen_hadir": "95.6%"
+      },
+      {
+        "departemen": "HRD",
+        "nik": "HRD001",
+        "nama": "Yuli Astuti",
+        "hadir": 20,
+        "izin": 3,
+        "alpha": 0,
+        "persen_hadir": "86.9%"
+      }
+    ]
+  },
+  "detailDataKey": "items",
+  "bands": [
+    {
+      "id": "band-header",
+      "name": "Report Header",
+      "height": 80,
+      "elements": [
+        {
+          "id": "el_h1",
+          "type": "text",
+          "x": 20,
+          "y": 4,
+          "w": 754,
+          "h": 28,
+          "content": "LAPORAN ABSENSI KARYAWAN",
+          "fontFamily": "Arial",
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#1e3a5f",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h2",
+          "type": "text",
+          "x": 20,
+          "y": 34,
+          "w": 754,
+          "h": 16,
+          "content": "Periode: April 2026  |  23 Hari Kerja",
+          "fontFamily": "Arial",
+          "fontSize": 11,
+          "fontWeight": "normal",
+          "color": "#555",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h3",
+          "type": "line",
+          "x": 20,
+          "y": 56,
+          "w": 754,
+          "h": 2,
+          "color": "#1e3a5f",
+          "borderWidth": 2
+        }
+      ]
+    },
+    {
+      "id": "band-page-header",
+      "name": "Page Header",
+      "height": 26,
+      "elements": [
+        {
+          "id": "el_ph1",
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "w": 754,
+          "h": 26,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#1e3a5f"
+        },
+        {
+          "id": "el_ph2",
+          "type": "text",
+          "x": 24,
+          "y": 5,
+          "w": 50,
+          "h": 16,
+          "content": "NIK",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph3",
+          "type": "text",
+          "x": 78,
+          "y": 5,
+          "w": 200,
+          "h": 16,
+          "content": "Nama Karyawan",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph4",
+          "type": "text",
+          "x": 282,
+          "y": 5,
+          "w": 80,
+          "h": 16,
+          "content": "Hadir",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph5",
+          "type": "text",
+          "x": 366,
+          "y": 5,
+          "w": 80,
+          "h": 16,
+          "content": "Izin",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph6",
+          "type": "text",
+          "x": 450,
+          "y": 5,
+          "w": 80,
+          "h": 16,
+          "content": "Alpha",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph7",
+          "type": "text",
+          "x": 534,
+          "y": 5,
+          "w": 100,
+          "h": 16,
+          "content": "% Hadir",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#fff",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-group-header",
+      "type": "group-header",
+      "name": "Group Header (departemen)",
+      "height": 26,
+      "groupByFields": [
+        "departemen"
+      ],
+      "elements": [
+        {
+          "id": "el_gh1",
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "w": 754,
+          "h": 26,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#dbeafe"
+        },
+        {
+          "id": "el_gh2",
+          "type": "text",
+          "x": 24,
+          "y": 5,
+          "w": 40,
+          "h": 16,
+          "content": "Dept:",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#1e3a5f",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_gh3",
+          "type": "field",
+          "x": 68,
+          "y": 5,
+          "w": 300,
+          "h": 16,
+          "content": "{item.departemen}",
+          "fontFamily": "Arial",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#1e3a5f",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-detail",
+      "name": "Detail",
+      "height": 24,
+      "elements": [
+        {
+          "id": "el_d1",
+          "type": "field",
+          "x": 24,
+          "y": 4,
+          "w": 50,
+          "h": 16,
+          "content": "{item.nik}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#555",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d2",
+          "type": "field",
+          "x": 78,
+          "y": 4,
+          "w": 200,
+          "h": 16,
+          "content": "{item.nama}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#222",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d3",
+          "type": "field",
+          "x": 282,
+          "y": 4,
+          "w": 80,
+          "h": 16,
+          "content": "{item.hadir}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#166534",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d4",
+          "type": "field",
+          "x": 366,
+          "y": 4,
+          "w": 80,
+          "h": 16,
+          "content": "{item.izin}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#92400e",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d5",
+          "type": "field",
+          "x": 450,
+          "y": 4,
+          "w": 80,
+          "h": 16,
+          "content": "{item.alpha}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#991b1b",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d6",
+          "type": "field",
+          "x": 534,
+          "y": 4,
+          "w": 100,
+          "h": 16,
+          "content": "{item.persen_hadir}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#1e3a5f",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d7",
+          "type": "line",
+          "x": 20,
+          "y": 22,
+          "w": 754,
+          "h": 1,
+          "color": "#e5e7eb",
+          "borderWidth": 1
+        }
+      ]
+    },
+    {
+      "id": "band-group-footer",
+      "type": "group-footer",
+      "name": "Group Footer (departemen)",
+      "height": 26,
+      "groupByFields": [
+        "departemen"
+      ],
+      "elements": [
+        {
+          "id": "el_gf1",
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "w": 754,
+          "h": 26,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#f0f9ff"
+        },
+        {
+          "id": "el_gf2",
+          "type": "text",
+          "x": 24,
+          "y": 5,
+          "w": 255,
+          "h": 16,
+          "content": "Total karyawan dept ini:",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#1e3a5f",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_gf3",
+          "type": "text",
+          "x": 282,
+          "y": 5,
+          "w": 80,
+          "h": 16,
+          "content": "COUNT",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#1e3a5f",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "COUNT(items)"
+        },
+        {
+          "id": "el_gf4",
+          "type": "text",
+          "x": 366,
+          "y": 5,
+          "w": 80,
+          "h": 16,
+          "content": "Total Izin",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#92400e",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "SUM(items,izin)"
+        },
+        {
+          "id": "el_gf5",
+          "type": "text",
+          "x": 450,
+          "y": 5,
+          "w": 80,
+          "h": 16,
+          "content": "Total Alpha",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#991b1b",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "SUM(items,alpha)"
+        }
+      ]
+    },
+    {
+      "id": "band-page-footer",
+      "name": "Page Footer",
+      "height": 20,
+      "elements": [
+        {
+          "id": "el_pf1",
+          "type": "text",
+          "x": 20,
+          "y": 4,
+          "w": 754,
+          "h": 14,
+          "content": "Dicetak: 17 April 2026 — Sistem HRIS PT. Maju Bersama",
+          "fontFamily": "Arial",
+          "fontSize": 8,
+          "fontWeight": "normal",
+          "color": "#999",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-footer",
+      "name": "Report Footer",
+      "height": 40,
+      "elements": [
+        {
+          "id": "el_f1",
+          "type": "line",
+          "x": 20,
+          "y": 2,
+          "w": 754,
+          "h": 2,
+          "color": "#1e3a5f",
+          "borderWidth": 2
+        },
+        {
+          "id": "el_f2",
+          "type": "text",
+          "x": 20,
+          "y": 12,
+          "w": 754,
+          "h": 16,
+          "content": "Total Keseluruhan: 8 Karyawan",
+          "fontFamily": "Arial",
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#1e3a5f",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    }
+  ],
+  "jsreport": {
+    "template": {
+      "recipe": "chrome-pdf",
+      "engine": "handlebars",
+      "chrome": {
+        "displayHeaderFooter": true,
+        "marginTop": "20px",
+        "marginBottom": "20px",
+        "marginLeft": "20px",
+        "marginRight": "20px",
+        "format": "A4",
+        "landscape": false
+      }
+    }
+  }
+}

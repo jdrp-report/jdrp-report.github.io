@@ -1,0 +1,651 @@
+{
+  "_type": "jdrp",
+  "version": "1.0",
+  "engine": "jsreport",
+  "meta": {
+    "name": "Slip Gaji Karyawan",
+    "created": "2026-04-17T00:00:00.000Z",
+    "modified": "2026-04-19T04:30:20.300Z",
+    "author": "JDRP Designer"
+  },
+  "page": {
+    "size": "A4",
+    "orientation": "portrait",
+    "margin": 24,
+    "width": 794,
+    "height": 1123
+  },
+  "dataFields": [
+    {
+      "name": "komponen",
+      "label": "Komponen"
+    },
+    {
+      "name": "keterangan",
+      "label": "Keterangan"
+    },
+    {
+      "name": "jumlah",
+      "label": "Jumlah"
+    }
+  ],
+  "detailDataSource": {
+    "key": "items",
+    "data": [
+      {
+        "komponen": "Pendapatan",
+        "keterangan": "Gaji Pokok",
+        "jumlah": 8000000
+      },
+      {
+        "komponen": "Pendapatan",
+        "keterangan": "Tunjangan Transportasi",
+        "jumlah": 600000
+      },
+      {
+        "komponen": "Pendapatan",
+        "keterangan": "Tunjangan Makan",
+        "jumlah": 500000
+      },
+      {
+        "komponen": "Pendapatan",
+        "keterangan": "Tunjangan Jabatan",
+        "jumlah": 1500000
+      },
+      {
+        "komponen": "Potongan",
+        "keterangan": "BPJS Kesehatan (1%)",
+        "jumlah": 80000
+      },
+      {
+        "komponen": "Potongan",
+        "keterangan": "BPJS Ketenagakerjaan (2%)",
+        "jumlah": 160000
+      },
+      {
+        "komponen": "Potongan",
+        "keterangan": "PPh 21",
+        "jumlah": 350000
+      },
+      {
+        "komponen": "Potongan",
+        "keterangan": "Pinjaman Koperasi",
+        "jumlah": 200000
+      }
+    ]
+  },
+  "detailDataKey": "items",
+  "bands": [
+    {
+      "id": "band-header",
+      "name": "Report Header",
+      "height": 130,
+      "elements": [
+        {
+          "id": "el_h1",
+          "type": "rectangle",
+          "x": 24,
+          "y": 0,
+          "w": 746,
+          "h": 56,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#0f172a"
+        },
+        {
+          "id": "el_h2",
+          "type": "text",
+          "x": 36,
+          "y": 8,
+          "w": 400,
+          "h": 22,
+          "content": "PT. NUSANTARA TEKNOLOGI",
+          "fontFamily": "Arial",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#38bdf8",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h3",
+          "type": "text",
+          "x": 36,
+          "y": 32,
+          "w": 400,
+          "h": 16,
+          "content": "Jl. Gatot Subroto Kav. 51, Jakarta Selatan 12950",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#94a3b8",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h4",
+          "type": "text",
+          "x": 424,
+          "y": 14,
+          "w": 340,
+          "h": 22,
+          "content": "SLIP GAJI — APRIL 2026",
+          "fontFamily": "Arial",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#ffffff",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h5",
+          "type": "rectangle",
+          "x": 24,
+          "y": 62,
+          "w": 746,
+          "h": 60,
+          "borderWidth": 1,
+          "borderStyle": "solid",
+          "borderColor": "#e2e8f0",
+          "backgroundColor": "#f8fafc"
+        },
+        {
+          "id": "el_h6",
+          "type": "text",
+          "x": 34,
+          "y": 70,
+          "w": 100,
+          "h": 14,
+          "content": "Nama",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#475569",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h7",
+          "type": "text",
+          "x": 134,
+          "y": 70,
+          "w": 280,
+          "h": 14,
+          "content": ": Ahmad Kurniawan, S.Kom",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111827",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h8",
+          "type": "text",
+          "x": 34,
+          "y": 88,
+          "w": 100,
+          "h": 14,
+          "content": "Jabatan",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#475569",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h9",
+          "type": "text",
+          "x": 134,
+          "y": 88,
+          "w": 280,
+          "h": 14,
+          "content": ": Senior Software Engineer",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111827",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h10",
+          "type": "text",
+          "x": 34,
+          "y": 106,
+          "w": 100,
+          "h": 14,
+          "content": "NIK",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#475569",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h11",
+          "type": "text",
+          "x": 134,
+          "y": 106,
+          "w": 200,
+          "h": 14,
+          "content": ": ENG-2021-042",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111827",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h12",
+          "type": "text",
+          "x": 424,
+          "y": 70,
+          "w": 120,
+          "h": 14,
+          "content": "Departemen",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#475569",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h13",
+          "type": "text",
+          "x": 548,
+          "y": 70,
+          "w": 220,
+          "h": 14,
+          "content": ": Engineering",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111827",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h14",
+          "type": "text",
+          "x": 424,
+          "y": 88,
+          "w": 120,
+          "h": 14,
+          "content": "Bank / No Rek",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#475569",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h15",
+          "type": "text",
+          "x": 548,
+          "y": 88,
+          "w": 220,
+          "h": 14,
+          "content": ": BCA / 123-456-7890",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111827",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-page-header",
+      "name": "Page Header",
+      "height": 24,
+      "elements": [
+        {
+          "id": "el_ph1",
+          "type": "rectangle",
+          "x": 24,
+          "y": 0,
+          "w": 746,
+          "h": 24,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#0f172a"
+        },
+        {
+          "id": "el_ph2",
+          "type": "text",
+          "x": 32,
+          "y": 5,
+          "w": 500,
+          "h": 14,
+          "content": "Komponen / Keterangan",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#94a3b8",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph3",
+          "type": "text",
+          "x": 584,
+          "y": 5,
+          "w": 182,
+          "h": 14,
+          "content": "Jumlah (Rp)",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "bold",
+          "color": "#94a3b8",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-group-header",
+      "type": "group-header",
+      "name": "Group Header (komponen)",
+      "height": 22,
+      "groupByFields": [
+        "komponen"
+      ],
+      "elements": [
+        {
+          "id": "el_gh1",
+          "type": "rectangle",
+          "x": 24,
+          "y": 0,
+          "w": 746,
+          "h": 22,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#1e293b"
+        },
+        {
+          "id": "el_gh2",
+          "type": "field",
+          "x": 32,
+          "y": 4,
+          "w": 300,
+          "h": 14,
+          "content": "{item.komponen}",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#38bdf8",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-detail",
+      "name": "Detail",
+      "height": 22,
+      "elements": [
+        {
+          "id": "el_d1",
+          "type": "field",
+          "x": 32,
+          "y": 4,
+          "w": 540,
+          "h": 14,
+          "content": "{item.keterangan}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#374151",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d2",
+          "type": "field",
+          "x": 584,
+          "y": 4,
+          "w": 182,
+          "h": 14,
+          "content": "{item.jumlah}",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#111827",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT({item.jumlah},currency,id-ID)"
+        },
+        {
+          "id": "el_d3",
+          "type": "line",
+          "x": 24,
+          "y": 20,
+          "w": 746,
+          "h": 1,
+          "color": "#e5e7eb",
+          "borderWidth": 1
+        }
+      ]
+    },
+    {
+      "id": "band-group-footer",
+      "type": "group-footer",
+      "name": "Group Footer (komponen)",
+      "height": 26,
+      "groupByFields": [
+        "komponen"
+      ],
+      "elements": [
+        {
+          "id": "el_gf1",
+          "type": "rectangle",
+          "x": 24,
+          "y": 0,
+          "w": 746,
+          "h": 26,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#f0f9ff"
+        },
+        {
+          "id": "el_gf2",
+          "type": "text",
+          "x": 32,
+          "y": 5,
+          "w": 548,
+          "h": 16,
+          "content": "SUBTOTAL",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#0f172a",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_gf3",
+          "type": "text",
+          "x": 584,
+          "y": 5,
+          "w": 182,
+          "h": 16,
+          "content": "SUB",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#0f172a",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT(SUM(items,jumlah),currency,id-ID)"
+        }
+      ]
+    },
+    {
+      "id": "band-page-footer",
+      "name": "Page Footer",
+      "height": 155,
+      "elements": [
+        {
+          "id": "el_1776571438572",
+          "type": "rectangle",
+          "x": 24,
+          "y": 0,
+          "w": 746,
+          "h": 36,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#0f172a"
+        },
+        {
+          "id": "el_1776571438573",
+          "type": "text",
+          "x": 32,
+          "y": 8,
+          "w": 400,
+          "h": 18,
+          "content": "TAKE HOME PAY",
+          "fontFamily": "Arial",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#38bdf8",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_1776571438574",
+          "type": "text",
+          "x": 416,
+          "y": 8,
+          "w": 342,
+          "h": 18,
+          "content": "Rp 9.810.000",
+          "fontFamily": "Arial",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#ffffff",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_1776571438575",
+          "type": "text",
+          "x": 24,
+          "y": 74,
+          "w": 250,
+          "h": 80,
+          "content": "Jakarta, 30 April 2026\nHRD Manager,\n\n\n_________________________\nBudi Prakoso",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#374151",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "allowHtml": false
+        }
+      ],
+      "showAfterDetail": true
+    },
+    {
+      "id": "band-footer",
+      "name": "Report Footer",
+      "height": 163,
+      "elements": []
+    }
+  ],
+  "jsreport": {
+    "template": {
+      "recipe": "chrome-pdf",
+      "engine": "handlebars",
+      "chrome": {
+        "displayHeaderFooter": true,
+        "marginTop": "24px",
+        "marginBottom": "24px",
+        "marginLeft": "24px",
+        "marginRight": "24px",
+        "format": "A4",
+        "landscape": false
+      }
+    }
+  }
+}

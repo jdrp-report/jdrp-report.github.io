@@ -1,0 +1,621 @@
+{
+  "_type": "jdrp",
+  "version": "1.0",
+  "engine": "jsreport",
+  "meta": {
+    "name": "Faktur Penjualan",
+    "created": "2026-04-17T00:00:00.000Z",
+    "modified": "2026-04-19T04:10:52.121Z",
+    "author": "JDRP Designer"
+  },
+  "page": {
+    "size": "A4",
+    "orientation": "portrait",
+    "margin": 24,
+    "width": 794,
+    "height": 1123
+  },
+  "dataFields": [
+    {
+      "name": "no_faktur",
+      "label": "No Faktur"
+    },
+    {
+      "name": "tanggal",
+      "label": "Tanggal"
+    },
+    {
+      "name": "pelanggan",
+      "label": "Pelanggan"
+    },
+    {
+      "name": "nama_barang",
+      "label": "Nama Barang"
+    },
+    {
+      "name": "qty",
+      "label": "Qty"
+    },
+    {
+      "name": "harga",
+      "label": "Harga"
+    },
+    {
+      "name": "subtotal",
+      "label": "Subtotal"
+    }
+  ],
+  "detailDataSource": {
+    "key": "items",
+    "data": [
+      {
+        "nama_barang": "Laptop ASUS VivoBook",
+        "qty": 2,
+        "harga": 8500000,
+        "subtotal": 17000000
+      },
+      {
+        "nama_barang": "Mouse Logitech MX Master",
+        "qty": 5,
+        "harga": 850000,
+        "subtotal": 4250000
+      },
+      {
+        "nama_barang": "Keyboard Mechanical Keychron",
+        "qty": 3,
+        "harga": 1200000,
+        "subtotal": 3600000
+      },
+      {
+        "nama_barang": "Monitor LG 24 inch",
+        "qty": 2,
+        "harga": 3200000,
+        "subtotal": 6400000
+      },
+      {
+        "nama_barang": "USB Hub 7-Port",
+        "qty": 10,
+        "harga": 320000,
+        "subtotal": 3200000
+      }
+    ]
+  },
+  "detailDataKey": "items",
+  "bands": [
+    {
+      "id": "band-header",
+      "name": "Report Header",
+      "height": 136,
+      "elements": [
+        {
+          "id": "el_h1",
+          "type": "text",
+          "x": 24,
+          "y": 46,
+          "w": 400,
+          "h": 32,
+          "content": "FAKTUR PENJUALAN",
+          "fontFamily": "Arial",
+          "fontSize": 22,
+          "fontWeight": "bold",
+          "color": "#1a1a2e",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h2",
+          "type": "text",
+          "x": 24,
+          "y": 82,
+          "w": 300,
+          "h": 18,
+          "content": "PT. MAJU BERSAMA INDONESIA",
+          "fontFamily": "Arial",
+          "fontSize": 11,
+          "fontWeight": "normal",
+          "color": "#555",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h3",
+          "type": "text",
+          "x": 24,
+          "y": 100,
+          "w": 300,
+          "h": 16,
+          "content": "Jl. Sudirman No. 123, Jakarta Pusat",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#777",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h4",
+          "type": "rectangle",
+          "x": 474,
+          "y": 42,
+          "w": 294,
+          "h": 88,
+          "borderWidth": 1,
+          "borderStyle": "solid",
+          "borderColor": "#dee2e6",
+          "backgroundColor": "#f8f9fa"
+        },
+        {
+          "id": "el_h5",
+          "type": "text",
+          "x": 484,
+          "y": 50,
+          "w": 120,
+          "h": 16,
+          "content": "No. Faktur",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#333",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h6",
+          "type": "text",
+          "x": 484,
+          "y": 68,
+          "w": 120,
+          "h": 16,
+          "content": "Tanggal",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#333",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h7",
+          "type": "text",
+          "x": 484,
+          "y": 86,
+          "w": 120,
+          "h": 16,
+          "content": "Kepada",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#333",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h8",
+          "type": "text",
+          "x": 606,
+          "y": 50,
+          "w": 160,
+          "h": 16,
+          "content": "INV-2026-0042",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#0057b7",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h9",
+          "type": "text",
+          "x": 606,
+          "y": 68,
+          "w": 160,
+          "h": 16,
+          "content": "17 April 2026",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#333",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_h10",
+          "type": "text",
+          "x": 606,
+          "y": 86,
+          "w": 160,
+          "h": 16,
+          "content": "CV. Teknologi Maju",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#333",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_line1",
+          "type": "line",
+          "x": 24,
+          "y": 134,
+          "w": 746,
+          "h": 2,
+          "color": "#1a1a2e",
+          "borderWidth": 2
+        }
+      ]
+    },
+    {
+      "id": "band-page-header",
+      "name": "Page Header",
+      "height": 28,
+      "elements": [
+        {
+          "id": "el_ph1",
+          "type": "rectangle",
+          "x": 24,
+          "y": 0,
+          "w": 746,
+          "h": 28,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#1a1a2e"
+        },
+        {
+          "id": "el_ph2",
+          "type": "text",
+          "x": 28,
+          "y": 6,
+          "w": 360,
+          "h": 16,
+          "content": "Nama Barang",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#ffffff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph3",
+          "type": "text",
+          "x": 388,
+          "y": 6,
+          "w": 80,
+          "h": 16,
+          "content": "Qty",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#ffffff",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph4",
+          "type": "text",
+          "x": 472,
+          "y": 6,
+          "w": 140,
+          "h": 16,
+          "content": "Harga Satuan",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#ffffff",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_ph5",
+          "type": "text",
+          "x": 616,
+          "y": 6,
+          "w": 154,
+          "h": 16,
+          "content": "Subtotal",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#ffffff",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        }
+      ]
+    },
+    {
+      "id": "band-detail",
+      "name": "Detail",
+      "height": 26,
+      "elements": [
+        {
+          "id": "el_d1",
+          "type": "field",
+          "x": 28,
+          "y": 5,
+          "w": 356,
+          "h": 16,
+          "content": "{item.nama_barang}",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#222",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d2",
+          "type": "field",
+          "x": 388,
+          "y": 5,
+          "w": 80,
+          "h": 16,
+          "content": "{item.qty}",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#222",
+          "textAlign": "center",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_d3",
+          "type": "field",
+          "x": 472,
+          "y": 5,
+          "w": 140,
+          "h": 16,
+          "content": "{item.harga}",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#222",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT({item.harga},currency,id-ID)"
+        },
+        {
+          "id": "el_d4",
+          "type": "field",
+          "x": 616,
+          "y": 5,
+          "w": 154,
+          "h": 16,
+          "content": "{item.subtotal}",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "normal",
+          "color": "#222",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT({item.subtotal},currency,id-ID)"
+        },
+        {
+          "id": "el_d5",
+          "type": "line",
+          "x": 24,
+          "y": 24,
+          "w": 746,
+          "h": 1,
+          "color": "#dee2e6",
+          "borderWidth": 1
+        }
+      ]
+    },
+    {
+      "id": "band-page-footer",
+      "name": "Page Footer",
+      "height": 100,
+      "elements": [
+        {
+          "id": "el_1776571438559",
+          "type": "text",
+          "x": 476,
+          "y": 8,
+          "w": 140,
+          "h": 16,
+          "content": "Total Item",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#333",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_1776571438560",
+          "type": "text",
+          "x": 613,
+          "y": 8,
+          "w": 154,
+          "h": 16,
+          "content": "",
+          "fontFamily": "Arial",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#1a1a2e",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "COUNT(items)+' Items'"
+        },
+        {
+          "id": "el_1776571438561",
+          "type": "rectangle",
+          "x": 471,
+          "y": 44,
+          "w": 298,
+          "h": 32,
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "#1a1a2e"
+        },
+        {
+          "id": "el_1776571438562",
+          "type": "text",
+          "x": 483,
+          "y": 52,
+          "w": 140,
+          "h": 18,
+          "content": "GRAND TOTAL",
+          "fontFamily": "Arial",
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "color": "#ffffff",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_1776571438563",
+          "type": "text",
+          "x": 615,
+          "y": 52,
+          "w": 150,
+          "h": 18,
+          "content": "",
+          "fontFamily": "Arial",
+          "fontSize": 12,
+          "fontWeight": "bold",
+          "color": "#00e5ff",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent",
+          "expression": "FORMAT(SUM(items, subtotal), number, id-ID)"
+        }
+      ],
+      "showAfterDetail": true
+    },
+    {
+      "id": "band-footer",
+      "name": "Report Footer",
+      "height": 32,
+      "elements": [
+        {
+          "id": "el_1776571438564",
+          "type": "text",
+          "x": 438,
+          "y": 17,
+          "w": 325,
+          "h": 14,
+          "content": "Halaman 1",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#888",
+          "textAlign": "right",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_1776571438565",
+          "type": "text",
+          "x": 24,
+          "y": 17,
+          "w": 373,
+          "h": 14,
+          "content": "PT. Maju Bersama Indonesia — Terima kasih atas kepercayaan Anda",
+          "fontFamily": "Arial",
+          "fontSize": 9,
+          "fontWeight": "normal",
+          "color": "#888",
+          "textAlign": "left",
+          "borderWidth": 0,
+          "borderStyle": "solid",
+          "borderColor": "#000",
+          "backgroundColor": "transparent"
+        },
+        {
+          "id": "el_1776571438568",
+          "type": "line",
+          "x": 24,
+          "y": 3,
+          "w": 746,
+          "h": 1,
+          "color": "#1a1a2e",
+          "borderWidth": 2
+        }
+      ]
+    }
+  ],
+  "jsreport": {
+    "template": {
+      "recipe": "chrome-pdf",
+      "engine": "handlebars",
+      "chrome": {
+        "displayHeaderFooter": true,
+        "marginTop": "24px",
+        "marginBottom": "24px",
+        "marginLeft": "24px",
+        "marginRight": "24px",
+        "format": "A4",
+        "landscape": false
+      }
+    }
+  }
+}
