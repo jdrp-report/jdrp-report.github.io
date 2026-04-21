@@ -1,0 +1,210 @@
+[
+  {
+    "code": "ES-VI",
+    "name": "Álava"
+  },
+  {
+    "code": "ES-AB",
+    "name": "Albacete"
+  },
+  {
+    "code": "ES-A",
+    "name": "Alicante"
+  },
+  {
+    "code": "ES-AL",
+    "name": "Almería"
+  },
+  {
+    "code": "ES-O",
+    "name": "Asturias"
+  },
+  {
+    "code": "ES-AV",
+    "name": "Ávila"
+  },
+  {
+    "code": "ES-BA",
+    "name": "Badajoz"
+  },
+  {
+    "code": "ES-PM",
+    "name": "Baleares"
+  },
+  {
+    "code": "ES-B",
+    "name": "Barcelona"
+  },
+  {
+    "code": "ES-BI",
+    "name": "Bizkaia"
+  },
+  {
+    "code": "ES-BU",
+    "name": "Burgos"
+  },
+  {
+    "code": "ES-CC",
+    "name": "Cáceres"
+  },
+  {
+    "code": "ES-CA",
+    "name": "Cádiz"
+  },
+  {
+    "code": "ES-S",
+    "name": "Cantabria"
+  },
+  {
+    "code": "ES-CS",
+    "name": "Castellón"
+  },
+  {
+    "code": "ES-CE",
+    "name": "Ceuta"
+  },
+  {
+    "code": "ES-CR",
+    "name": "Ciudad Real"
+  },
+  {
+    "code": "ES-CO",
+    "name": "Córdoba"
+  },
+  {
+    "code": "ES-CU",
+    "name": "Cuenca"
+  },
+  {
+    "code": "ES-GI",
+    "name": "Gerona"
+  },
+  {
+    "code": "ES-SS",
+    "name": "Gipuzkoa"
+  },
+  {
+    "code": "ES-GR",
+    "name": "Granada"
+  },
+  {
+    "code": "ES-GU",
+    "name": "Guadalajara"
+  },
+  {
+    "code": "ES-H",
+    "name": "Huelva"
+  },
+  {
+    "code": "ES-HU",
+    "name": "Huesca"
+  },
+  {
+    "code": "ES-J",
+    "name": "Jaén"
+  },
+  {
+    "code": "ES-C",
+    "name": "La Coruña"
+  },
+  {
+    "code": "ES-LO",
+    "name": "La Rioja"
+  },
+  {
+    "code": "ES-GC",
+    "name": "Las Palmas"
+  },
+  {
+    "code": "ES-LE",
+    "name": "León"
+  },
+  {
+    "code": "ES-L",
+    "name": "Lérida"
+  },
+  {
+    "code": "ES-LU",
+    "name": "Lugo"
+  },
+  {
+    "code": "ES-M",
+    "name": "Madrid"
+  },
+  {
+    "code": "ES-MA",
+    "name": "Málaga"
+  },
+  {
+    "code": "ES-ML",
+    "name": "Melilla"
+  },
+  {
+    "code": "ES-MU",
+    "name": "Murcia"
+  },
+  {
+    "code": "ES-NA",
+    "name": "Navarra"
+  },
+  {
+    "code": "ES-OR",
+    "name": "Orense"
+  },
+  {
+    "code": "ES-P",
+    "name": "Palencia"
+  },
+  {
+    "code": "ES-PO",
+    "name": "Pontevedra"
+  },
+  {
+    "code": "ES-SA",
+    "name": "Salamanca"
+  },
+  {
+    "code": "ES-TF",
+    "name": "Santa Cruz de Tenerife"
+  },
+  {
+    "code": "ES-SG",
+    "name": "Segovia"
+  },
+  {
+    "code": "ES-SE",
+    "name": "Sevilla"
+  },
+  {
+    "code": "ES-SO",
+    "name": "Soria"
+  },
+  {
+    "code": "ES-T",
+    "name": "Tarragona"
+  },
+  {
+    "code": "ES-TE",
+    "name": "Teruel"
+  },
+  {
+    "code": "ES-TO",
+    "name": "Toledo"
+  },
+  {
+    "code": "ES-V",
+    "name": "Valencia"
+  },
+  {
+    "code": "ES-VA",
+    "name": "Valladolid"
+  },
+  {
+    "code": "ES-ZA",
+    "name": "Zamora"
+  },
+  {
+    "code": "ES-Z",
+    "name": "Zaragoza"
+  }
+]
